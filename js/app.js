@@ -1,0 +1,82 @@
+/* ВиноВатт!: самостоятельный учебный движок; уроки 01 и 02. */
+(function () {
+'use strict';
+const D = window.VinoVattData;
+const main = document.getElementById('main');
+const soundButton = document.getElementById('sound-toggle');
+const announcer = document.getElementById('announcer');
+const SOUND_KEY = 'vinovatt:sound';
+let currentTopic='what-is-wine';
+const progressKey = () => 'vinovatt:learn:v2:' + currentTopic;
+const activeLesson = () => D.lessons[currentTopic];
+const lessonNumber = () => String(D.topics.findIndex(x=>x.id===currentTopic)+1).padStart(2,'0');
+let soundOn = safeGet(SOUND_KEY) !== 'off';
+let audioCtx = null;
+let session = null;
+const topicCards = () => D.cards.filter(c => c.topic === currentTopic);
+const topicQuestions = () => D.questions.filter(c => c.topic === currentTopic);
+const topicPractices = () => D.practices.filter(c => c.topic === currentTopic);
+function safeGet(key) { try { return localStorage.getItem(key); } catch (_) { return null; } }
+function safeSet(key,value) { try { localStorage.setItem(key,value); } catch (_) {} }
+function safeDel(key) { try { localStorage.removeItem(key); } catch (_) {} }
+function node(tag, className='', text) {
+  const element=document.createElement(tag);
+  if(className) element.className=className;
+  if(text!==undefined) element.textContent=text;
+  return element;
+}
+function add(parent,...children){ children.forEach(c => parent.appendChild(c));return parent; }
+function render(){main.replaceChildren();try{window.scrollTo({top:0,behavior:'instant'});}catch(_){}}
+function announce(msg){announcer.textContent=msg;}
+function button(label,fn,secondary=false,css=''){
+  const b=node('button','button'+(secondary?' secondary':'')+(css?' '+css:''),label);
+  b.type='button';b.onclick=fn;return b;
+}
+function back(fn){return button('← Назад',fn,true,'back');}
+function heading(tag,title,subtitle){return add(node('section','pagehead'),node('div','eyebrow',tag),node('h1','',title),node('p','',subtitle));}
+function paragraph(s,cls=''){return node('p',cls,s);}
+function section(title,eyebrow){const r=node('section','panel');if(eyebrow)r.append(node('div','eyebrow',eyebrow));r.append(node('h2','',title));return r;}
+function shuffle(original){const a=[...original];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function changeSound(){soundButton.textContent=soundOn?'🔊':'🔇';soundButton.setAttribute('aria-pressed',String(soundOn));soundButton.setAttribute('aria-label',soundOn?'Выключить звуковые эффекты':'Включить звуковые эффекты');}
+function ping(){if(!soundOn)return;try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;audioCtx=audioCtx||new C();if(audioCtx.state==='suspended')audioCtx.resume().catch(()=>{});const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();osc.frequency.value=620;osc.type='sine';gain.gain.setValueAtTime(.035,audioCtx.currentTime);gain.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.10);osc.connect(gain);gain.connect(audioCtx.destination);osc.start();osc.stop(audioCtx.currentTime+.11);}catch(_){}}
+function progress(index,total){const p=node('div','progress');p.setAttribute('role','progressbar');p.setAttribute('aria-valuemin','0');p.setAttribute('aria-valuemax',String(total));p.setAttribute('aria-valuenow',String(index));p.setAttribute('aria-label','Пройдено заданий');const fill=node('div');fill.style.width=(total?Math.round(100*index/total):0)+'%';p.append(fill);return p;}
+function goHome(){session=null;render();const hero=node('section','hero');add(hero,node('div','eyebrow','ШКОЛА ВИННОЙ КУЛЬТУРЫ'),node('h1','','Истории, которые хочется рассказывать.'),paragraph('От первого знакомства с вином до уверенного профессионального объяснения. Мощность вина.'));main.append(hero);
+ const h=node('div','section-heading');h.append(node('h2','','Учебные разделы'));main.append(h);
+ const grid=node('div','tiles');D.sections.forEach((s,i)=>{const b=node('button','tile'+(!i?' primary':''));b.type='button';add(b,add(node('span','tile-top'),node('span','tile-number',s.number),node('span','tile-symbol',s.symbol)),node('span','tile-title',s.name),node('span','tile-sub',s.subtitle),node('span','tile-status',s.status==='placeholder'?'В ПЛАНАХ':s.status==='lesson'?'ДВА УРОКА ГОТОВЫ К ИСПЫТАНИЮ':'РАЗДЕЛ В ПОДГОТОВКЕ'));b.onclick=()=>openSection(s.id);grid.append(b)});main.append(grid);main.append(paragraph('Подготовительная сборка: первые два урока доступны в разделе «Введение». Другие разделы пока не наполнены.','smallnote'));
+}
+function openSection(id){const s=D.sections.find(x=>x.id===id);if(!s)return goHome();render();main.append(back(goHome),heading('РАЗДЕЛ '+s.number,s.name,s.subtitle));
+ if(id==='basics'){const list=node('div','topics');D.topics.forEach((t,i)=>{const b=node('button','topic');b.type='button';add(b,node('span','topic-title',String(i+1).padStart(2,'0')+'. '+t.name),node('span','topic-sub',t.subtitle),node('span','topic-sub',t.status==='lesson'?'Читать урок, учиться и проверять знания':'Содержание ещё не подготовлено'));b.onclick=()=>t.status==='lesson'?openTopic(t.id):draft(t.name,id);list.append(b);});main.append(list);return;}
+ if(id==='china'){const p=section('Китай — будущий курс','ЗАГЛУШКА');p.append(paragraph('Этот раздел предусмотрен в согласованной структуре, но пока не содержит учебных материалов.'));main.append(p);return;}
+ const list=node('div','topics');(D.regions[id]||[]).forEach(name=>{const b=node('button','topic');b.type='button';add(b,node('span','topic-title',name),node('span','topic-sub',name==='Испания'&&id==='old-world'?'Предварительная история об альбариньо':'Материалы в подготовке'));b.onclick=()=>name==='Испания'&&id==='old-world'?storyExample():draft(name,id);list.append(b);});main.append(list);
+}
+function draft(name,origin){render();main.append(back(()=>openSection(origin)),heading('В ПОДГОТОВКЕ',name,'Учебный материал появится после содержательной проверки и авторской редакции.'));}
+function storyExample(){render();main.append(back(()=>openSection('old-world')),heading('СТАРЫЙ СВЕТ → ИСПАНИЯ','Альбариньо: история Атлантики','Небольшой пример будущих региональных уроков.'));const s=D.storyExample;const p=section(s.title,'РАССКАЖИ ГОСТЮ');add(p,paragraph(s.lead,'lead'),paragraph(s.narrative),node('div','eyebrow','ЗНАЙ КАК ПРОФЕССИОНАЛ'),paragraph(s.facts),paragraph(s.producer),paragraph('Источники: '+s.sources,'minor'));main.append(p);}
+function openTopic(topicId=null){if(typeof topicId==='string')currentTopic=topicId;session=null;render();main.append(back(()=>openSection('basics')),heading('ВВЕДЕНИЕ · УРОК '+lessonNumber(),activeLesson().title,activeLesson().subtitle));const intro=section('Цель урока','ЧЕМУ НАУЧИМСЯ');intro.append(paragraph(activeLesson().goal));main.append(intro);
+ const box=node('div','modes');[['Читать урок','История и профессиональная теория',()=>readLesson('guest')],['Обучение',topicCards().length+' карточек со случайным порядком',startLearning],['Контроль',topicQuestions().length+' вопросов с объяснениями',startQuiz],['Практика',topicPractices().length+' профессиональные ситуации',startPractice]].forEach(([label,desc,fn],i)=>{const b=node('button','mode'+(i===0?' featured':''));b.type='button';add(b,node('span','',label),node('small','',desc));b.onclick=fn;box.append(b)});main.append(box);main.append(paragraph('Материал разработан в двух регистрах: «Расскажи гостю» и «Знай как профессионал». В контроле нет вопросов о вымышленных фактах и конкретных брендах.','smallnote'));
+}
+function readLesson(which='guest'){render();main.append(back(openTopic),heading('ТЕОРИЯ · УРОК '+lessonNumber(),activeLesson().title,'Два способа рассказать об одном: доступно гостю и подробно коллеге.'));
+ const tabs=node('div','tabs');[['guest','Расскажи гостю'],['professional','Знай как профессионал']].forEach(([id,label])=>{const b=button(label,()=>readLesson(id),id!==which);b.setAttribute('aria-pressed',String(id===which));tabs.append(b);});main.append(tabs);
+ if(which==='guest'){const story=section(lessonNumber()==='01'?'История одного превращения':'Два красных сухих — два разных характера','РАССКАЖИ ГОСТЮ');activeLesson().guestStory.forEach((p,i)=>story.append(paragraph(p,i===0?'lead':'')));story.append(paragraph(activeLesson().narrativeCaution,'minor'));main.append(story);const ask=section('Смысл этой истории','САМОЕ ГЛАВНОЕ');ask.append(paragraph(lessonNumber()==='01'?'За образами стоят три проверяемых факта: виноград содержит сахара; дрожжи обеспечивают спиртовое брожение; сорт, место и технология помогают объяснить разнообразие вин.':'Сухость говорит о сахаре, а характер вина определяют также кислотность, танины, алкоголь, тело и ароматы. Эти ощущения можно объяснить гостю без жаргона.'));main.append(ask);}
+ else {const path=section(lessonNumber()==='01'?'Путь от ягоды к вину':'Как описать стиль вина','ОПОРНАЯ СХЕМА');const steps=node('ol','steps');activeLesson().threeSteps.forEach(x=>{const item=node('li');add(item,node('strong','',x.name),paragraph(x.description));steps.append(item);});path.append(steps);main.append(path);activeLesson().professional.forEach((p,i)=>{const b=section(p.title,'ОСНОВА '+String(i+1).padStart(2,'0'));add(b,paragraph(p.body),paragraph('Запомнить: '+p.takeaway,'tip'),paragraph('Источник: '+p.source,'minor'));main.append(b)});const misconceptions=section('Проверим распространённые заблуждения','МИФ / ФАКТ');activeLesson().myths.forEach(m=>{const d=node('div','myth');add(d,node('strong','',m.myth),paragraph(m.fact));misconceptions.append(d)});main.append(misconceptions);}
+ const actions=node('div','actions');actions.append(button('Перейти к карточкам →',startLearning),button('К режимам',openTopic,true));main.append(actions);
+}
+function progressSignature(cards){return cards.map(c=>c.id).slice().sort().join('|');}
+function freshLearning(){return {version:2,signature:progressSignature(topicCards()),order:shuffle(topicCards().map(c=>c.id)),index:0};}
+function readLearning(){const cards=topicCards(),validIds=new Set(cards.map(c=>c.id));try{const v=JSON.parse(safeGet(progressKey()));if(v&&v.version===2&&v.signature===progressSignature(cards)&&Array.isArray(v.order)&&v.order.length===cards.length&&new Set(v.order).size===cards.length&&v.order.every(id=>validIds.has(id))&&Number.isInteger(v.index)&&v.index>=0&&v.index<=cards.length)return v;}catch(_){}return freshLearning();}
+function startLearning(){session={mode:'learn',state:readLearning()};safeSet(progressKey(),JSON.stringify(session.state));showLearning();}
+function showLearning(){render();const state=session.state,total=state.order.length;main.append(back(openTopic));if(state.index>=total){safeDel(progressKey());main.append(heading('ОБУЧЕНИЕ','Все карточки пройдены','Ты завершил все карточки выбранной темы. Пройди контроль или начни повторение.'));const a=node('div','actions');a.append(button('Повторить с новым порядком',()=>{session.state=freshLearning();safeSet(progressKey(),JSON.stringify(session.state));showLearning()}),button('Контроль →',startQuiz,true),button('К режимам',openTopic,true));main.append(a);return;}
+ const card=D.cards.find(c=>c.id===state.order[state.index]);if(!card)return openTopic();main.append(heading('ОБУЧЕНИЕ','Карточка '+(state.index+1)+' из '+total,'Порядок случайный. Прогресс сохраняется на этом устройстве.'),progress(state.index,total));const p=section(card.front,'ВОПРОС');let revealed=false;const reveal=button('Показать ответ',()=>{if(revealed)return;revealed=true;const details=node('div','answer-details');add(details,node('div','eyebrow','КОРОТКИЙ ОТВЕТ'),paragraph(card.back),node('div','eyebrow','ПОЧЕМУ ЭТО ТАК?'),paragraph(card.why),node('div','eyebrow','РАССКАЖИ ГОСТЮ'),paragraph(card.story),paragraph('Источник: '+card.source,'minor'));
+ reveal.replaceWith(details);p.append(button('Следующая карточка →',()=>{state.index++;safeSet(progressKey(),JSON.stringify(state));showLearning()}));ping();});p.append(reveal);main.append(p);}
+function startQuiz(){session={mode:'quiz',items:shuffle(topicQuestions()),index:0,score:0,answered:false};showQuiz();}
+function showQuiz(){render();const s=session;main.append(back(openTopic));if(s.index>=s.items.length){showResult('КОНТРОЛЬ',s.score,s.items.length,()=>startQuiz());return;}
+ const q=s.items[s.index];main.append(heading('КОНТРОЛЬ','Вопрос '+(s.index+1)+' из '+s.items.length,'Выбери один ответ, затем прочитай объяснение.'),progress(s.index,s.items.length));const p=section(q.prompt,'ПРОВЕРКА ЗНАНИЙ'),choices=node('div','choices');const buttons=[];shuffle(q.options.map((label,i)=>({label,original:i}))).forEach(opt=>{const b=node('button','choice',opt.label);b.type='button';b.onclick=()=>{if(s.answered)return;s.answered=true;const ok=opt.original===q.answer;if(ok){s.score++;ping();}buttons.forEach(({button,index})=>{button.disabled=true;if(index===q.answer)button.classList.add('correct')});if(!ok)b.classList.add('wrong');const result=node('div','result '+(ok?'good':'bad'));add(result,node('strong','',ok?'Верно!':'Разберём ошибку'),paragraph(q.why),paragraph('Источник: '+q.source,'minor'),button('Следующий вопрос →',()=>{s.index++;s.answered=false;showQuiz()}));p.append(result);announce(ok?'Верный ответ':'Неверный ответ. Прочитай объяснение.');};buttons.push({button:b,index:opt.original});choices.append(b);});p.append(choices);main.append(p);
+}
+function startPractice(){session={mode:'practice',items:shuffle(topicPractices()),index:0,score:0,answered:false};showPractice();}
+function showPractice(){render();const s=session;main.append(back(openTopic));if(s.index>=s.items.length){showResult('ПРАКТИКА',s.score,s.items.length,()=>startPractice());return;}
+ const p=s.items[s.index];main.append(heading('ПРАКТИКА','Ситуация '+(s.index+1)+' из '+s.items.length,'Решаем задачу кависта: сначала смысл, потом профессиональные термины.'),progress(s.index,s.items.length));const panel=section(p.scenario,p.title);panel.append(paragraph('Навык: '+p.skill,'minor'));const choices=node('div','choices'),buttons=[];shuffle(p.options).forEach(opt=>{const b=node('button','choice',opt.label);b.type='button';b.onclick=()=>{if(s.answered)return;s.answered=true;if(opt.ok){s.score++;ping();}buttons.forEach(({button,option})=>{button.disabled=true;if(option.ok)button.classList.add('correct')});if(!opt.ok)b.classList.add('wrong');const feedback=node('div','result '+(opt.ok?'good':'bad'));add(feedback,node('strong','',opt.ok?'Хорошее решение!':'Что можно улучшить?'),paragraph(opt.why),node('div','eyebrow','КАК РАССУЖДАТЬ'),paragraph(p.conclusion),button('Следующая ситуация →',()=>{s.index++;s.answered=false;showPractice()}));panel.append(feedback);};buttons.push({button:b,option:opt});choices.append(b)});panel.append(choices);main.append(panel);
+}
+function showResult(mode,score,total,restart){main.append(heading(mode,'Результат: '+score+' из '+total,score===total?'Отлично! Все ответы верные.':'Ошибки можно разобрать в объяснениях и повторном прохождении.'));const p=section('Что дальше?','ИТОГ');p.append(paragraph('Винная культура становится профессиональным навыком, когда за знанием следует понятное объяснение.'));const a=node('div','actions');a.append(button('Попробовать ещё раз',restart),button('К режимам',openTopic,true),button('Читать теорию',()=>readLesson('professional'),true));p.append(a);main.append(p);}
+document.getElementById('home-button').onclick=goHome;
+soundButton.onclick=()=>{soundOn=!soundOn;safeSet(SOUND_KEY,soundOn?'on':'off');changeSound();};
+changeSound();goHome();
+})();
