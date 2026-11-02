@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#1c171b">
+  <meta name="description" content="ВиноВатт! — учебно-игровая платформа. Мощность вина.">
+  <title>ВиноВатт! — Мощность вина</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="data/lesson01-content.js" defer></script>
+  <script src="data/lesson02-content.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div id="app" class="app" aria-live="polite">
+    <header class="masthead">
+      <button type="button" id="home-button" class="brand" aria-label="На главную">
+        <span class="logo-mark" aria-hidden="true">V<span class="spark">⚡</span></span>
+        <span class="brand-text"><strong>ВиноВатт!</strong><small>Мощность вина</small></span>
+      </button>
+      <button type="button" class="sound-toggle" id="sound-toggle" aria-pressed="true" aria-label="Выключить звуковые эффекты">🔊</button>
+    </header>
+    <main id="main" tabindex="-1"></main>
+    <footer class="footer"><span>ВиноВатт! • предварительная сборка перед v0.1.0</span><span>Учебный продукт для взрослых • 18+</span></footer>
+  </div>
+  <div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>
