@@ -8,3 +8,7 @@ button{font:inherit;cursor:pointer}button:disabled{opacity:.52;cursor:not-allowe
 @keyframes rise{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:700px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.tabs .button{min-width:0}.panel{overflow-wrap:anywhere}}
 @media(max-width:380px){.steps{grid-template-columns:1fr}.tabs{flex-direction:column}}
+/* Русскоязычный фирменный знак: ВВт⚡; латиница WWt⚡ — резервная */
+.logo-mark{flex:0 0 49px;font-family:Georgia,"Times New Roman",serif}
+.logo-letters{font-weight:700;font-size:20px;letter-spacing:-.055em;line-height:1;white-space:nowrap;padding-right:2px}
+.logo-mark .spark{font-family:system-ui,sans-serif;right:-7px;bottom:-6px}
