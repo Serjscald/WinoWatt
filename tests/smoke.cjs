@@ -32,6 +32,10 @@ for(const topic of d.topics.filter(x=>x.status==='lesson')){
 }
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
 assert(html.includes('ВиноВатт!')&&html.includes('Мощность вина'),'Канон бренда в главном экране');
+assert(html.includes('<span class="logo-letters">ВВт</span>'),'Русская монограмма в интерфейсе');
+assert(!html.includes('class="logo-mark" aria-hidden="true">V<'),'Старый одиночный V заменён');
+const canon=fs.readFileSync(path.join(root,'PROJECT_CANON.md'),'utf8');
+assert(canon.includes('ВВт⚡') && canon.includes('WWt⚡'),'Кириллическая и запасная латинская монограммы зафиксированы');
 assert(html.includes('lesson01-content.js')&&html.includes('lesson02-content.js'),'Оба урока подключены');
 const app=fs.readFileSync(path.join(root,'js/app.js'),'utf8');
 assert(app.includes("'vinovatt:learn:v2:' + currentTopic"),'Прогресс по темам');
