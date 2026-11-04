@@ -35,6 +35,8 @@ for(const topic of d.topics){
 assert.deepEqual(counts,{cards:73,questions:73,practices:19});
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
 for(let i=1;i<=6;i++)assert(html.includes('data/lesson'+String(i).padStart(2,'0')+'-content.js'),'Не подключён урок '+i);
+const balance=fs.readFileSync(path.join(root,'data/reverse-questions.js'),'utf8');
+assert(balance.includes('WinoWattReverse'),'Подключены обратные задания');
 const app=fs.readFileSync(path.join(root,'js/app.js'),'utf8');
 for(const key of ['shuffle(topicCards().map(c=>c.id))','shuffle(topicQuestions())','shuffle(topicPractices())','shuffle(q.options.map','shuffle(p.options)'])assert(app.includes(key),'Нарушено перемешивание: '+key);
 assert(app.includes('currentTopic')&&app.includes('progressKey')&&app.includes('aria-pressed')&&app.includes('aria-valuenow'),'Нарушена работа уроков или доступность');
