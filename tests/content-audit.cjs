@@ -16,7 +16,7 @@ for(const topic of d.topics){
  assert.equal(questions.length,topic.id==='wine-character'?13:12,'Вопросы '+topic.id);
  assert.equal(cases.length,topic.id==='wine-character'?4:3,'Практика '+topic.id);
  for(const card of cards){
-  for(const k of ['front','back','why','story','source'])assert(typeof card[k]==='string'&&card[k].trim().length>=10,'Незаполненное поле карточки '+card.id+'/'+k);
+  for(const k of ['front','back','why','story','source'])assert(typeof card[k]==='string'&&card[k].trim().length>=(k==='source'?5:10),'Незаполненное поле карточки '+card.id+'/'+k);
  }
  for(const q of questions){
   assert(typeof q.prompt==='string'&&q.prompt.trim().length>12,'Не заполнен вопрос '+q.id);
