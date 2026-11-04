@@ -26,7 +26,7 @@ const unit={
         "title": "1. Терруар — отношения места и человека",
         "body": "По определению OIV, виноградарский терруар объединяет узнаваемую физическую и биологическую среду с практиками виноградарства и сформированным коллективным знанием. В понятие входят почва, рельеф, климат, ландшафт и биоразнообразие. Не стоит сводить терруар к одной породе камня или отождествлять его с юридическим указанием происхождения.",
         "takeaway": "Терруар — взаимодействие природы, практик и опыта, а не только почва.",
-        "source": "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)"
+        "source": "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C"
       },
       {
         "title": "2. Климат и зрелость винограда",
@@ -42,9 +42,9 @@ const unit={
       },
       {
         "title": "4. Почва: вода, корни и питание",
-        "body": "Тип почвы, её структура, глубина и способность пропускать или удерживать воду влияют на жизнь лозы. Но фраза «известняк на почве — значит, вино имеет вкус известняка» выдаёт художественную ассоциацию за доказанный прямой перенос. «Минеральность» — дегустационный образ, а не измерение частиц породы в бокале.",
+        "body": "Тип почвы, её структура, глубина и способность пропускать или удерживать воду влияют на жизнь лозы. Но фраза «известняк на почве — значит, вино имеет вкус известняка» выдаёт художественную ассоциацию за доказанный прямой перенос. «Минеральность» — неоднозначный сенсорный термин. Лоза действительно усваивает минеральные элементы питания, однако ощущения кремня или мокрого камня не следует считать доказательством прямого переноса вкуса горной породы в вино; механизмы этих ощущений продолжают исследоваться.",
         "takeaway": "Почва действует через условия роста; не следует обещать вкус камня как физический перенос.",
-        "source": "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362); WSET, How does geography affect a wine’s style? (2021, https://www.wsetglobal.com/knowledge-centre/blog/2021/august/24/how-does-geography-affect-a-wine-s-style)"
+        "source": "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C; WSET, How does geography affect a wine’s style? (2021, https://www.wsetglobal.com/knowledge-centre/blog/2021/august/24/how-does-geography-affect-a-wine-s-style)"
       },
       {
         "title": "5. Погода конкретного года — винтаж",
@@ -56,7 +56,7 @@ const unit={
         "title": "6. Человек внутри терруара",
         "body": "Виноградарь выбирает работу с зелёной массой, плотность нагрузки лозы, защиту урожая, дату сбора и другие практики. После сбора решения винодела — мацерация, брожение, использование ёмкостей и выдержка — дополнительно влияют на стиль. OIV включает виноградарские практики в понятие терруара; технология переработки также важна при сравнении вин, даже когда происхождение одинаково.",
         "takeaway": "Место не отменяет мастерство и решения человека.",
-        "source": "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362); WSET, How does geography affect a wine’s style? (2021, https://www.wsetglobal.com/knowledge-centre/blog/2021/august/24/how-does-geography-affect-a-wine-s-style)"
+        "source": "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C; WSET, How does geography affect a wine’s style? (2021, https://www.wsetglobal.com/knowledge-centre/blog/2021/august/24/how-does-geography-affect-a-wine-s-style)"
       },
       {
         "title": "7. Бургундские Climats и профессиональная честность",
@@ -98,7 +98,7 @@ const unit={
       }
     ],
     "sources": [
-      "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)",
+      "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C",
       "WSET, How does geography affect a wine’s style? (2021, https://www.wsetglobal.com/knowledge-centre/blog/2021/august/24/how-does-geography-affect-a-wine-s-style)",
       "WSET, Understanding acidity in wine (2026, https://www.wsetglobal.com/knowledge-centre/blog/2026/understanding-acidity-in-wine)",
       "Bourgogne Wines, An ideal climate for producing great wines (https://www.bourgogne-wines.com/wine-and-terroir/our-natural-assets/climatology/an-ideal-climate-for-producing-great-wines,2483,9268.html)"
@@ -112,7 +112,7 @@ const unit={
       "back": "Взаимодействие природной и биологической среды, виноградарских практик и коллективного знания.",
       "why": "Такое понимание закреплено в определении OIV; почва — только одна часть.",
       "story": "«Терруар — биография места и людей, а не горсть земли».",
-      "source": "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)"
+      "source": "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C"
     },
     {
       "id": "t-card-002",
@@ -166,7 +166,7 @@ const unit={
       "back": "Через водный режим, корни, питание и условия роста.",
       "why": "Недоказательно обещать прямой «вкус известняка» только по геологии участка.",
       "story": "«Почва не приправляет бокал, а создаёт условия для лозы».",
-      "source": "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)"
+      "source": "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C"
     },
     {
       "id": "t-card-008",
@@ -184,7 +184,7 @@ const unit={
       "back": "Срок сбора, мацерация, ёмкости и выдержка меняют стиль.",
       "why": "Одинаковое происхождение само по себе не гарантирует одинаковое вино.",
       "story": "«С одной сцены два режиссёра поставят разные спектакли».",
-      "source": "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)"
+      "source": "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C"
     },
     {
       "id": "t-card-010",
@@ -208,10 +208,10 @@ const unit={
       "id": "t-card-012",
       "topic": "terroir",
       "front": "Как лучше описать «минеральность» гостю?",
-      "back": "Как дегустационную ассоциацию, не утверждая буквальный перенос минералов из почвы в напиток.",
+      "back": "Как сенсорное описание, не утверждая, будто ощущение камня вызвано прямым переносом вкуса породы из почвы.",
       "why": "Это корректнее и профессиональнее, чем обещать физический «вкус камня».",
       "story": "«Можно услышать в вине образ мокрого камня, не объявляя, будто камень туда положили».",
-      "source": "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)"
+      "source": "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C"
     }
   ],
   "questions": [
@@ -226,7 +226,7 @@ const unit={
       ],
       "answer": 1,
       "why": "Определение OIV охватывает природную среду и взаимодействующие с ней практики.",
-      "source": "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)"
+      "source": "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C"
     },
     {
       "id": "t-q002",
@@ -277,8 +277,8 @@ const unit={
         "Да, но только в игристых"
       ],
       "answer": 1,
-      "why": "Тип почвы влияет на жизненные условия лозы, а «минеральность» — описательная ассоциация.",
-      "source": "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)"
+      "why": "Тип почвы влияет на водный режим и питание лозы. «Минеральность» — сенсорное описание, происхождение которого нельзя однозначно установить только по геологии.",
+      "source": "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C"
     },
     {
       "id": "t-q006",
@@ -330,7 +330,7 @@ const unit={
       ],
       "answer": 1,
       "why": "Происхождение важно, но не заменяет оценку продукта.",
-      "source": "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)"
+      "source": "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C"
     },
     {
       "id": "t-q010",
@@ -356,7 +356,7 @@ const unit={
       ],
       "answer": 0,
       "why": "Практики выращивания и виноделия взаимодействуют с условиями места.",
-      "source": "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)"
+      "source": "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C"
     },
     {
       "id": "t-q012",
@@ -368,8 +368,8 @@ const unit={
         "Отказать в консультации"
       ],
       "answer": 1,
-      "why": "Метафорой можно описывать впечатление, но нельзя выдавать её за доказанный механизм.",
-      "source": "OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)"
+      "why": "Такое впечатление можно описывать метафорически, не выдавая конкретную геологическую причину за доказанную.",
+      "source": "OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C"
     }
   ],
   "practices": [

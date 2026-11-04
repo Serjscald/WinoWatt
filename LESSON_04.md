@@ -28,7 +28,7 @@
 
 **Запомнить:** Терруар — взаимодействие природы, практик и опыта, а не только почва.
 
-*Источник:* OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)
+*Источник:* OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C
 
 ### 2. Климат и зрелость винограда
 
@@ -48,11 +48,11 @@
 
 ### 4. Почва: вода, корни и питание
 
-Тип почвы, её структура, глубина и способность пропускать или удерживать воду влияют на жизнь лозы. Но фраза «известняк на почве — значит, вино имеет вкус известняка» выдаёт художественную ассоциацию за доказанный прямой перенос. «Минеральность» — дегустационный образ, а не измерение частиц породы в бокале.
+Тип почвы, её структура, глубина и способность пропускать или удерживать воду влияют на жизнь лозы. Но фраза «известняк на почве — значит, вино имеет вкус известняка» выдаёт художественную ассоциацию за доказанный прямой перенос. «Минеральность» — неоднозначный сенсорный термин. Лоза действительно усваивает минеральные элементы питания, однако ощущения кремня или мокрого камня не следует считать доказательством прямого переноса вкуса горной породы в вино; механизмы этих ощущений продолжают исследоваться.
 
 **Запомнить:** Почва действует через условия роста; не следует обещать вкус камня как физический перенос.
 
-*Источник:* OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362); WSET, How does geography affect a wine’s style? (2021, https://www.wsetglobal.com/knowledge-centre/blog/2021/august/24/how-does-geography-affect-a-wine-s-style)
+*Источник:* OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C; WSET, How does geography affect a wine’s style? (2021, https://www.wsetglobal.com/knowledge-centre/blog/2021/august/24/how-does-geography-affect-a-wine-s-style)
 
 ### 5. Погода конкретного года — винтаж
 
@@ -68,7 +68,7 @@
 
 **Запомнить:** Место не отменяет мастерство и решения человека.
 
-*Источник:* OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362); WSET, How does geography affect a wine’s style? (2021, https://www.wsetglobal.com/knowledge-centre/blog/2021/august/24/how-does-geography-affect-a-wine-s-style)
+*Источник:* OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C; WSET, How does geography affect a wine’s style? (2021, https://www.wsetglobal.com/knowledge-centre/blog/2021/august/24/how-does-geography-affect-a-wine-s-style)
 
 ### 7. Бургундские Climats и профессиональная честность
 
@@ -191,7 +191,7 @@
 
 ### 12. Как лучше описать «минеральность» гостю?
 
-Как дегустационную ассоциацию, не утверждая буквальный перенос минералов из почвы в напиток.
+Как сенсорное описание, не утверждая, будто ощущение камня вызвано прямым переносом вкуса породы из почвы.
 
 **Почему:** Это корректнее и профессиональнее, чем обещать физический «вкус камня».
 
@@ -227,7 +227,7 @@
 
 **Правильный ответ:** Нет, прямой перенос вкуса камня из почвы не доказан этим фактом
 
-Тип почвы влияет на жизненные условия лозы, а «минеральность» — описательная ассоциация.
+Тип почвы влияет на водный режим и питание лозы. «Минеральность» — сенсорное описание, происхождение которого нельзя однозначно установить только по геологии.
 
 ### 6. Как правильно понимать термин «Climat» в Бургундии?
 
@@ -269,7 +269,7 @@
 
 **Правильный ответ:** Уточнить желаемые ассоциации и предложить стиль без ложной геологической причинности
 
-Метафорой можно описывать впечатление, но нельзя выдавать её за доказанный механизм.
+Такое впечатление можно описывать метафорически, не выдавая конкретную геологическую причину за доказанную.
 
 ## Практика — 3 ситуации кависта
 
@@ -305,7 +305,7 @@
 
 ## Источники
 
-- OIV, Resolution OIV/VITI 333/2010: Definition of vitivinicultural terroir (https://www.oiv.int/node/3362)
+- OIV, Definition of vitivinicultural terroir — OIV/VITI 333/2010 (https://www.oiv.int/index.php/node/3362); A. Maltman, Minerality in wine: a geological perspective (2013), https://doi.org/10.1080/09571264.2013.793176; Tai & Kostaki, The science of minerality (2025), https://doi.org/10.1039/D5RA06531C
 - WSET, How does geography affect a wine’s style? (2021, https://www.wsetglobal.com/knowledge-centre/blog/2021/august/24/how-does-geography-affect-a-wine-s-style)
 - WSET, Understanding acidity in wine (2026, https://www.wsetglobal.com/knowledge-centre/blog/2026/understanding-acidity-in-wine)
 - Bourgogne Wines, An ideal climate for producing great wines (https://www.bourgogne-wines.com/wine-and-terroir/our-natural-assets/climatology/an-ideal-climate-for-producing-great-wines,2483,9268.html)
