@@ -24,27 +24,27 @@ const unit={
     "professional": [
       {
         "title": "1. На этикетке может говорить сорт или регион",
-        "body": "Одни виноделы выносят на первый план сорт винограда, другие — защищённое наименование происхождения. В европейских регионах название места нередко указывает на традиционно разрешённые сорта и правила изготовления. Вина Chablis AOC относятся к Шардоне, а Barolo DOCG — к Неббиоло. Надпись «Chardonnay» без других сведений, напротив, сама по себе не раскрывает ни место выращивания, ни способ выдержки.",
+        "body": "Одни виноделы выносят на первый план сорт винограда, другие — защищённое наименование происхождения. В европейских регионах название места нередко указывает на традиционно разрешённые сорта и правила изготовления. Для белых вин Chablis AOC предусмотрен Шардоне, а Barolo DOCG производится из 100% Неббиоло. Это конкретные правила двух наименований, а не универсальный принцип для всех регионов. Надпись «Chardonnay» без других сведений, напротив, сама по себе не раскрывает ни место выращивания, ни способ выдержки.",
         "takeaway": "Не путай сорт винограда с адресом вина: разные этикетки могут говорить об одном сорте разными словами.",
-        "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; WSET, How to read wine labels: piecing the clues together (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-two-piecing-the-clues-together/"
+        "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/; WSET, How to read wine labels: piecing the clues together (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-two-piecing-the-clues-together/"
       },
       {
         "title": "2. Географическое происхождение и система правил",
         "body": "AOC/AOP, DOC/DOCG, DO и другие сокращения относятся к различным национальным системам географических обозначений и регламентов. Они могут определять территорию, допустимые сорта и методы. Но их нельзя переводить в универсальную шкалу «хорошее — лучшее — превосходное»: качество конкретной бутылки зависит также от производителя, урожая и хранения. Правила следует проверять по стране и актуальной спецификации наименования.",
         "takeaway": "Географическое обозначение — сведения о происхождении и правилах, а не магическая оценка вкуса.",
-        "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; OIV, International Standard for the Labelling of Wines, edition 2025, https://www.oiv.int/sites/default/files/publication/2025-03/OIV%20Wine%20Labelling%20Standard%20EN_2025%20complet.pdf"
+        "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/; OIV, International Standard for the Labelling of Wines, edition 2025, https://www.oiv.int/sites/default/files/publication/2025-03/OIV%20Wine%20Labelling%20Standard%20EN_2025%20complet.pdf"
       },
       {
         "title": "3. Винтаж — год урожая, не год розлива",
         "body": "Год на винной этикетке обычно относится к сбору винограда. Он помогает оценить возраст и контекст погодных условий урожая, но не сообщает автоматически дату розлива и не гарантирует зрелость. Невинтажные вина могут быть получены из виноматериалов разных лет, особенно в некоторых стилях игристого. Условия и правила указания года зависят от юрисдикции.",
         "takeaway": "Дата урожая — одна координата истории; стадия развития определяется конкретным вином.",
-        "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; OIV, International Standard for the Labelling of Wines, edition 2025, https://www.oiv.int/sites/default/files/publication/2025-03/OIV%20Wine%20Labelling%20Standard%20EN_2025%20complet.pdf; WSET, Why do we age wine? (2023), https://www.wsetglobal.com/knowledge-centre/blog/2023/march/21/why-do-we-age-wine"
+        "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/; OIV, International Standard for the Labelling of Wines, edition 2025, https://www.oiv.int/sites/default/files/publication/2025-03/OIV%20Wine%20Labelling%20Standard%20EN_2025%20complet.pdf; WSET, Why do we age wine? (2023), https://www.wsetglobal.com/knowledge-centre/blog/2023/march/21/why-do-we-age-wine"
       },
       {
         "title": "4. Производитель и конкретная линейка",
         "body": "Имя хозяйства, винодела или бренда помогает установить происхождение и стиль работы, но известность имени не заменяет анализ содержимого. У одного производителя могут быть молодое базовое вино, отдельная линейка с выдержкой и редкие участковые вина. Кависту важно сверить точное название, год, объём и происхождение, а не ориентироваться только на запомнившийся логотип.",
         "takeaway": "Не продавай репутацию вместо объяснения конкретной бутылки.",
-        "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; WSET, How to read wine labels: piecing the clues together (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-two-piecing-the-clues-together/"
+        "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/; WSET, How to read wine labels: piecing the clues together (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-two-piecing-the-clues-together/"
       },
       {
         "title": "5. Подсказки технологии: дуб, ферментация и стиль",
@@ -56,7 +56,7 @@ const unit={
         "title": "6. Reserva, Grand Cru и «старые лозы» — не универсальные медали",
         "body": "Термины Reserva, Riserva, Gran Reserva, Grand Cru, Vieilles Vignes и другие нельзя механически переносить между странами. В одной системе отдельное слово связано с законодательно установленными сроками или происхождением, в другой контекст и контроль могут отличаться. Например, испанская Rioja имеет собственные категории выдержки, а бургундское Grand Cru связано с классификацией виноградников. Значение всегда требует конкретного региона и действующего регламента.",
         "takeaway": "Красивое слово имеет значение только вместе с местом и правилами его применения.",
-        "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; WSET, Why do we age wine? (2023), https://www.wsetglobal.com/knowledge-centre/blog/2023/march/21/why-do-we-age-wine"
+        "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/; WSET, Why do we age wine? (2023), https://www.wsetglobal.com/knowledge-centre/blog/2023/march/21/why-do-we-age-wine"
       },
       {
         "title": "7. Четыре вопроса профессионального кависта",
@@ -102,7 +102,7 @@ const unit={
       }
     ],
     "sources": [
-      "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels",
+      "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/",
       "WSET, How to read wine labels: piecing the clues together (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-two-piecing-the-clues-together/",
       "WSET, A guide to wine types and styles (2023), https://www.wsetglobal.com/knowledge-centre/blog/2023/october/03/how-many-wine-types-and-styles-are-there",
       "WSET, Why do we age wine? (2023), https://www.wsetglobal.com/knowledge-centre/blog/2023/march/21/why-do-we-age-wine",
@@ -115,19 +115,19 @@ const unit={
       "id": "e-card-001",
       "topic": "grape-region",
       "front": "Почему на бутылке Chablis может не быть крупной надписи Chardonnay?",
-      "back": "Chablis — регулируемое наименование происхождения белого вина, для которого используется Шардоне.",
+      "back": "Chablis AOC — географическое наименование, под которым выпускают белое вино из Шардоне.",
       "why": "Название региона иногда заменяет явное указание сорта; нужно знать его правила.",
       "story": "«В этой бутылке сорт представился не именем, а адресом».",
-      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels"
+      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/"
     },
     {
       "id": "e-card-002",
       "topic": "grape-region",
       "front": "Что сообщает слово Barolo на этикетке?",
-      "back": "Это итальянское защищённое наименование для вина из Неббиоло с установленными региональными правилами.",
+      "back": "Это итальянское наименование происхождения; Barolo DOCG производят из 100% Неббиоло по местному регламенту.",
       "why": "Не следует считать Barolo сортом винограда или всей категорией красных вин Пьемонта.",
       "story": "«Бароло — фамилия места, Неббиоло — имя винограда».",
-      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels"
+      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/"
     },
     {
       "id": "e-card-003",
@@ -145,7 +145,7 @@ const unit={
       "back": "Регулируемое указание происхождения, иногда связанное с допустимыми сортами и методами производства.",
       "why": "Одинаковые аббревиатуры в разных странах не всегда имеют одинаковый юридический смысл.",
       "story": "«Это адрес с местными правилами, а не оценка звёздами».",
-      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels"
+      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/"
     },
     {
       "id": "e-card-005",
@@ -190,7 +190,7 @@ const unit={
       "back": "Требует уточнения региона и его классификации; это не универсальная международная оценка.",
       "why": "Например, в Бургундии термин связан с конкретными классифицированными виноградниками.",
       "story": "«Звание понятно только вместе со страной и её правилами».",
-      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels"
+      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/"
     },
     {
       "id": "e-card-010",
@@ -232,7 +232,7 @@ const unit={
       ],
       "answer": 1,
       "why": "Chablis — наименование происхождения; сорт надо знать из правил региона.",
-      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels"
+      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/"
     },
     {
       "id": "e-q002",
@@ -244,8 +244,8 @@ const unit={
         "Мальбек"
       ],
       "answer": 0,
-      "why": "Barolo DOCG делают из Неббиоло.",
-      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels"
+      "why": "Barolo DOCG производят из 100% Неббиоло.",
+      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/"
     },
     {
       "id": "e-q003",
@@ -271,7 +271,7 @@ const unit={
       ],
       "answer": 2,
       "why": "Территория и регламент не превращаются автоматически в оценку вкуса.",
-      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels"
+      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/"
     },
     {
       "id": "e-q005",
@@ -323,7 +323,7 @@ const unit={
       ],
       "answer": 1,
       "why": "Классификационные слова нужно привязывать к конкретному месту.",
-      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels"
+      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/"
     },
     {
       "id": "e-q009",
