@@ -1320,7 +1320,10 @@ const questionSpecs={
   }
 };
 function makeDirections(items,reverseCount){
- const result={};items.forEach((x,i)=>{result[x.id]=i<reverseCount;});return result;
+ const pool=items.map(x=>x.id);
+ for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+ const reversed=new Set(pool.slice(0,reverseCount));
+ const result={};items.forEach(x=>{result[x.id]=reversed.has(x.id);});return result;
 }
 window.WinoWattReverse={card:(id)=>cardSpecs[id],question:(id)=>questionSpecs[id],makeDirections};
 })();
