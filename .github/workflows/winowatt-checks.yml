@@ -22,3 +22,5 @@ jobs:
             node "$file"
           done
           node tests/smoke.cjs
+          node tests/content-audit.cjs
+          node tests/reverse-balance.cjs
