@@ -1,0 +1,56 @@
+name: WinoWatt — памятный ZIP релиза
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Версия в формате v0.1.0 (только при утверждённом релизе)'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  archive:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Проверить, что архив собирается для утверждённой версии
+        env:
+          MANUAL_VERSION: ${{ inputs.version }}
+          GIT_TAG: ${{ github.ref_name }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          set -e
+          VERSION="$GIT_TAG"
+          if [ "$EVENT" = workflow_dispatch ]; then
+            VERSION="$MANUAL_VERSION"
+            test "${GIT_TAG}" = "main" || { echo "Use main for manual release"; exit 1; }
+          fi
+          [[ "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit 1
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+      - name: Проверка учебной базы
+        run: |
+          for file in tests/*-smoke.cjs; do node "$file"; done
+          node tests/smoke.cjs
+          node tests/content-audit.cjs
+          node tests/reverse-balance.cjs
+      - name: Собрать архив и контрольную сумму
+        run: |
+          python3 tools/build_release.py --version "$VERSION"
+          python3 tools/verify_release.py dist/*.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: WinoWatt-${{ env.VERSION }}-archive
+          path: |
+            dist/*.zip
+            dist/*.zip.sha256
+          if-no-files-found: error
+          retention-days: 90
