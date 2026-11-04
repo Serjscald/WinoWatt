@@ -5,16 +5,16 @@ const vm=require('node:vm');
 const assert=require('node:assert/strict');
 const {execFileSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..');
-for(const f of ['data/lesson01-content.js','data/lesson02-content.js','data/lesson03-content.js','data/lesson04-content.js','js/app.js']){
+for(const f of ['data/lesson01-content.js','data/lesson02-content.js','data/lesson03-content.js','data/lesson04-content.js','data/lesson05-content.js','js/app.js']){
  execFileSync(process.execPath,['--check',path.join(root,f)]);
 }
 const context={window:{}};
-for(const f of ['data/lesson01-content.js','data/lesson02-content.js','data/lesson03-content.js','data/lesson04-content.js']) vm.runInNewContext(fs.readFileSync(path.join(root,f),'utf8'),context);
+for(const f of ['data/lesson01-content.js','data/lesson02-content.js','data/lesson03-content.js','data/lesson04-content.js','data/lesson05-content.js']) vm.runInNewContext(fs.readFileSync(path.join(root,f),'utf8'),context);
 const d=context.window.VinoVattData;
 assert.equal(d.sections.length,5);
 assert.equal(d.topics.length,6);
 assert.equal(d.sections.at(-1).status,'placeholder');
-assert.deepEqual([...d.topics.filter(t=>t.status==='lesson').map(x=>x.id)],['what-is-wine','wine-character','vine-to-bottle','terroir']);
+assert.deepEqual([...d.topics.filter(t=>t.status==='lesson').map(x=>x.id)],['what-is-wine','wine-character','vine-to-bottle','terroir','grape-region']);
 const l=d.lessons['vine-to-bottle'];
 assert.equal(l.professional.length,7);assert.equal(l.threeSteps.length,4);
 assert(l.guestStory.length>=5 && l.storyTitle && l.processTitle);
