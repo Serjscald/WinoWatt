@@ -40,6 +40,7 @@ assert(!html.includes('class="logo-mark" aria-hidden="true">V<'),'Старый �
 const canon=fs.readFileSync(path.join(root,'PROJECT_CANON.md'),'utf8');
 assert(canon.includes('ВВт⚡') && canon.includes('WWt⚡'),'Кириллическая и запасная латинская монограммы зафиксированы');
 assert(html.includes('data/reverse-questions.js'),'Обратные вопросы подключены');
+assert(html.includes('data/beginner-path.js'),'Словарь новичка подключён');
 assert(html.includes('lesson01-content.js')&&html.includes('lesson02-content.js')&&html.includes('lesson03-content.js')&&html.includes('lesson04-content.js')&&html.includes('lesson05-content.js')&&html.includes('lesson06-content.js'),'Шесть уроков подключены');
 const app=fs.readFileSync(path.join(root,'js/app.js'),'utf8');
 assert(app.includes("'vinovatt:learn:v2:' + currentTopic"),'Прогресс по темам');
