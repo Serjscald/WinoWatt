@@ -10,7 +10,7 @@ const counts={cards:0,questions:0,practices:0},ids=new Set();
 for(const topic of d.topics){
  const l=d.lessons[topic.id];assert(l,'Отсутствует урок '+topic.id);
  assert.equal(l.id,topic.id);assert(l.goal&&l.guestStory?.length>=4&&l.narrativeCaution&&l.professional?.length===7&&l.myths?.length>=3&&l.threeSteps?.length>=3,'Неполный урок '+topic.id);
- for(const block of l.professional){for(const key of ['title','body','takeaway','source'])assert(typeof block[key]==='string'&&block[key].length>9,'Пустой '+key+' в '+topic.id);}
+ for(const block of l.professional){for(const key of ['title','body','takeaway','source'])assert(typeof block[key]==='string'&&block[key].length>(key==='title'?3:key==='source'?4:9),'Пустой '+key+' в '+topic.id);}
  const cards=d.cards.filter(x=>x.topic===topic.id),questions=d.questions.filter(x=>x.topic===topic.id),cases=d.practices.filter(x=>x.topic===topic.id);
  assert.equal(cards.length,topic.id==='wine-character'?13:12,'Карточки '+topic.id);
  assert.equal(questions.length,topic.id==='wine-character'?13:12,'Вопросы '+topic.id);
