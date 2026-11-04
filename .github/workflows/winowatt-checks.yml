@@ -15,4 +15,10 @@ jobs:
         with:
           node-version: '22'
       - name: Проверка синтаксиса и учебных данных
-        run: node tests/smoke.cjs
+        run: |
+          set -e
+          for file in tests/*-smoke.cjs; do
+            echo "Running $file"
+            node "$file"
+          done
+          node tests/smoke.cjs
