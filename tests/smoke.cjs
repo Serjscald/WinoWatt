@@ -5,7 +5,7 @@ const vm=require('node:vm');
 const assert=require('node:assert/strict');
 const {execFileSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..');
-const fileList=['index.html','css/style.css','data/lesson01-content.js','data/lesson02-content.js','data/lesson03-content.js','data/lesson04-content.js','data/lesson05-content.js','data/lesson06-content.js','js/app.js','README.md','SOURCES.md','PROJECT_CANON.md','LESSON_01.md','LESSON_02.md','LESSON_03.md','LESSON_04.md','LESSON_05.md','LESSON_06.md'];
+const fileList=['index.html','css/style.css','data/lesson01-content.js','data/lesson02-content.js','data/lesson03-content.js','data/lesson04-content.js','data/lesson05-content.js','data/lesson06-content.js','data/reverse-questions.js','js/app.js','README.md','SOURCES.md','PROJECT_CANON.md','LESSON_01.md','LESSON_02.md','LESSON_03.md','LESSON_04.md','LESSON_05.md','LESSON_06.md'];
 fileList.forEach(f=>assert(fs.existsSync(path.join(root,f)),`Не найден ${f}`));
 for(const file of fileList.filter(f=>f.endsWith('.js')))execFileSync(process.execPath,['--check',path.join(root,file)]);
 const context={window:{}};
@@ -39,6 +39,7 @@ assert(html.includes('<span class="logo-letters">ВВт</span>'),'Русская
 assert(!html.includes('class="logo-mark" aria-hidden="true">V<'),'Старый одиночный V заменён');
 const canon=fs.readFileSync(path.join(root,'PROJECT_CANON.md'),'utf8');
 assert(canon.includes('ВВт⚡') && canon.includes('WWt⚡'),'Кириллическая и запасная латинская монограммы зафиксированы');
+assert(html.includes('data/reverse-questions.js'),'Обратные вопросы подключены');
 assert(html.includes('lesson01-content.js')&&html.includes('lesson02-content.js')&&html.includes('lesson03-content.js')&&html.includes('lesson04-content.js')&&html.includes('lesson05-content.js')&&html.includes('lesson06-content.js'),'Шесть уроков подключены');
 const app=fs.readFileSync(path.join(root,'js/app.js'),'utf8');
 assert(app.includes("'vinovatt:learn:v2:' + currentTopic"),'Прогресс по темам');
