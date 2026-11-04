@@ -38,6 +38,6 @@ for(let i=1;i<=6;i++)assert(html.includes('data/lesson'+String(i).padStart(2,'0'
 const balance=fs.readFileSync(path.join(root,'data/reverse-questions.js'),'utf8');
 assert(balance.includes('WinoWattReverse'),'Подключены обратные задания');
 const app=fs.readFileSync(path.join(root,'js/app.js'),'utf8');
-for(const key of ['shuffle(topicCards().map(c=>c.id))','shuffle(topicQuestions())','shuffle(topicPractices())','shuffle(q.options.map','shuffle(p.options)'])assert(app.includes(key),'Нарушено перемешивание: '+key);
+for(const key of ['shuffle(topicCards().map(c=>c.id))','shuffle(topicQuestions())','shuffle(topicPractices())','shuffle(options.map','shuffle(p.options)'])assert(app.includes(key),'Нарушено перемешивание: '+key);
 assert(app.includes('currentTopic')&&app.includes('progressKey')&&app.includes('aria-pressed')&&app.includes('aria-valuenow'),'Нарушена работа уроков или доступность');
 console.log('PASS: audit all 6 lessons — 73 cards, 73 questions, 19 cases, unique IDs, complete sources, modes connected, shuffling present');
