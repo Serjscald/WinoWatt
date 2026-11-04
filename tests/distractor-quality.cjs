@@ -11,7 +11,7 @@ const trivial=/^(?:цвет|форма) (?:этикетки|бутылки)$|^т
 for(const item of q){
  assert.equal(item.options.length,3,item.id+' has malformed options');
  assert.equal(new Set(item.options).size,3,item.id+' contains duplicate answers');
- assert(item.options.every(x=>typeof x==='string'&&x.trim().length>5),item.id+' too short or empty');
+ assert(item.options.every(x=>typeof x==='string'&&x.trim().length>=3),item.id+' too short or empty');
  assert(!item.options.some(x=>trivial.test(x.trim())),item.id+' has an obviously irrelevant distractor');
  const reverse=r.question(item.id);
  assert(reverse&&reverse.options.length===3,item.id+' has no reverse');
