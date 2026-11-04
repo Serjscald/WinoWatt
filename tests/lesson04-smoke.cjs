@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..');const context={window:{}};
-for(const p of ['data/lesson01-content.js','data/lesson02-content.js','data/lesson03-content.js','data/lesson04-content.js','data/lesson05-content.js'])vm.runInNewContext(fs.readFileSync(path.join(root,p),'utf8'),context);
+for(const p of ['data/lesson01-content.js','data/lesson02-content.js','data/lesson03-content.js','data/lesson04-content.js','data/lesson05-content.js','data/lesson06-content.js'])vm.runInNewContext(fs.readFileSync(path.join(root,p),'utf8'),context);
 const d=context.window.VinoVattData,l=d.lessons.terroir;
 assert(l&&l.professional.length===7&&l.guestStory.length>=5&&l.threeSteps.length===4);
 const cards=d.cards.filter(x=>x.topic==='terroir'),questions=d.questions.filter(x=>x.topic==='terroir'),cases=d.practices.filter(x=>x.topic==='terroir');

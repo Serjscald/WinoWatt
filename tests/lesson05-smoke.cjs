@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),ctx={window:{}};
-for(const name of ['lesson01','lesson02','lesson03','lesson04','lesson05'])vm.runInNewContext(fs.readFileSync(path.join(root,'data',name+'-content.js'),'utf8'),ctx);
+for(const name of ['lesson01','lesson02','lesson03','lesson04','lesson05','lesson06'])vm.runInNewContext(fs.readFileSync(path.join(root,'data',name+'-content.js'),'utf8'),ctx);
 const d=ctx.window.VinoVattData,l=d.lessons['grape-region'];
 assert(l && l.guestStory.length>=5 && l.professional.length===7 && l.threeSteps.length===5);
 const cards=d.cards.filter(x=>x.topic==='grape-region'),questions=d.questions.filter(x=>x.topic==='grape-region'),cases=d.practices.filter(x=>x.topic==='grape-region');
