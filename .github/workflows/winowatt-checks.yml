@@ -24,5 +24,6 @@ jobs:
           node tests/smoke.cjs
           node tests/content-audit.cjs
           node tests/reverse-balance.cjs
+          node tests/distractor-quality.cjs
           python3 tools/build_release.py --version v0.0.0 --date 2026-01-01 --output dist/test-archive.zip
           python3 tools/verify_release.py dist/test-archive.zip
