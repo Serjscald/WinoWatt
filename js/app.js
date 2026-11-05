@@ -29,7 +29,14 @@ function node(tag, className='', text) {
   return element;
 }
 function add(parent,...children){ children.forEach(c => parent.appendChild(c));return parent; }
-function render(){main.replaceChildren();try{window.scrollTo({top:0,behavior:'instant'});}catch(_){}}
+let initialRender=true;
+function render(){
+  main.replaceChildren();
+  try{window.scrollTo({top:0,behavior:'instant'});}catch(_){}
+  // После смены экрана переводим фокус на заголовок, не оставляя клавиатуру на удалённой кнопке.
+  if(initialRender){initialRender=false;return;}
+  queueMicrotask(()=>{const h=main.querySelector('h1');if(h){h.tabIndex=-1;h.focus({preventScroll:true});}});
+}
 function announce(msg){announcer.textContent=msg;}
 function button(label,fn,secondary=false,css=''){
   const b=node('button','button'+(secondary?' secondary':'')+(css?' '+css:''),label);
