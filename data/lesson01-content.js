@@ -7,7 +7,7 @@ window.VinoVattData = {
       "number": "01",
       "name": "Введение",
       "subtitle": "Шесть тем — единый фундамент",
-      "symbol": "✧",
+      "symbol": "🍇",
       "status": "lesson"
     },
     {
@@ -15,7 +15,7 @@ window.VinoVattData = {
       "number": "02",
       "name": "Старый Свет",
       "subtitle": "Истории винных регионов",
-      "symbol": "◌",
+      "symbol": "🏰",
       "status": "plan"
     },
     {
@@ -23,7 +23,7 @@ window.VinoVattData = {
       "number": "03",
       "name": "Новый Свет",
       "subtitle": "Виноделие за океанами",
-      "symbol": "✦",
+      "symbol": "🌎",
       "status": "plan"
     },
     {
@@ -31,7 +31,7 @@ window.VinoVattData = {
       "number": "04",
       "name": "Россия",
       "subtitle": "Самостоятельный курс",
-      "symbol": "⌁",
+      "symbol": "🇷🇺",
       "status": "plan"
     },
     {
@@ -39,7 +39,7 @@ window.VinoVattData = {
       "number": "05",
       "name": "Китай",
       "subtitle": "Раздел будет дополнен",
-      "symbol": "◇",
+      "symbol": "🇨🇳",
       "status": "placeholder"
     },
     {
@@ -47,7 +47,7 @@ window.VinoVattData = {
       "number": "06",
       "name": "Игристые вина",
       "subtitle": "От нежной игры пузырьков до великой Шампани",
-      "symbol": "✧",
+      "symbol": "🥂",
       "status": "plan"
     },
     {
@@ -55,7 +55,7 @@ window.VinoVattData = {
       "number": "07",
       "name": "Крепкие напитки",
       "subtitle": "От сырья и дистилляции к стилям и выдержке",
-      "symbol": "◇",
+      "symbol": "🥃",
       "status": "plan"
     },
     {
