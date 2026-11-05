@@ -5,6 +5,9 @@ const ctx={window:{}};
 for(let i=1;i<=6;i++){const file=path.join(root,'data','lesson'+String(i).padStart(2,'0')+'-content.js');vm.runInNewContext(fs.readFileSync(file,'utf8'),ctx,{filename:file});}
 const d=ctx.window.VinoVattData;
 assert.equal(d.topics.length,6,'Введение: ровно шесть тем');
+const mustQuestion=d.questions.find(q=>q.id==='q002');
+assert(mustQuestion&&mustQuestion.prompt.includes('раздавливании или прессовании'),'Точный смысл определения сусла OIV I.2.1');
+assert.equal(mustQuestion.options[mustQuestion.answer],'Сусло','Верный ответ на вопрос о сусле');
 assert.equal(d.topics.filter(x=>x.status==='lesson').length,6,'Шесть опубликованных тем');
 const counts={cards:0,questions:0,practices:0},ids=new Set();
 for(const topic of d.topics){
