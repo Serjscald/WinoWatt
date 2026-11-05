@@ -37,3 +37,8 @@ button{touch-action:manipulation}
   .actions>.button{min-height:48px}
   .tabs>.button{min-height:48px}
 }
+
+/* Клавиатурная доступность: ссылка пропуска повторяющейся шапки. */
+.skip-link{position:absolute;z-index:1000;left:12px;top:12px;transform:translateY(-200%);padding:12px 16px;border-radius:10px;background:var(--copper);color:#1f1720;font-weight:800}
+.skip-link:focus-visible{transform:translateY(0);outline:3px solid var(--white);outline-offset:2px}
+#main h1:focus{outline:none}
