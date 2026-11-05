@@ -91,6 +91,9 @@ async function openTopic(page,i){
     await quizButtons.first().click();
     assert(await page.locator('.result').isVisible(),'Результат ответа Контроля');
     assert(await page.locator('button.choice').first().isDisabled(),'Ответы блокируются после выбора');
+    const quizFeedback=await page.locator('.result .correct-answer').innerText();
+    const quizCorrect=await page.locator('button.choice.correct').innerText();
+    assert.equal(quizFeedback,'Правильный ответ: '+quizCorrect,'Обратная связь Контроля совпадает с верной кнопкой');
     await page.getByRole('button',{name:'Следующий вопрос',exact:false}).click();
     await checkFit(page,'Контроль '+i+' / '+width);
     await page.locator('button.back').click();
@@ -98,6 +101,10 @@ async function openTopic(page,i){
     assert((await page.locator('button.choice').count())>=3,'Практика доступна');
     await page.locator('button.choice').first().click();
     assert(await page.locator('.result').isVisible(),'Объяснение кейса');
+    const practiceFeedback=await page.locator('.result .correct-answer').innerText();
+    const practiceCorrect=await page.locator('button.choice.correct').innerText();
+    assert.equal(practiceFeedback,'Лучшее решение: '+practiceCorrect,'Практика прямо называет верное решение');
+    assert(await page.getByText('Почему этот подход работает:',{exact:false}).count()>=1,'Есть обоснование лучшего выбора');
     await checkFit(page,'Практика '+i+' / '+width);
     await page.locator('button.back').click();
     await page.locator('button.back').click();
