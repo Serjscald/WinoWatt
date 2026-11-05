@@ -7,13 +7,20 @@
 const assert=require('node:assert/strict');
 const {chromium}=require('playwright');
 const base=process.env.WINOWATT_BASE_URL || 'http://127.0.0.1:8765/';
-const widths=[375,390,768,1280];
+const widths=[320,375,390,768,1280];
 async function launch(){
  return chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 }
 async function checkFit(page,description){
  const d=await page.evaluate(()=>({sw:document.documentElement.scrollWidth,ww:window.innerWidth}));
  assert(d.sw<=d.ww+2,description+' — горизонтальная прокрутка '+d.sw+' > '+d.ww);
+}
+async function checkTapTargets(page,description){
+ const undersized=await page.locator('button').evaluateAll(buttons=>buttons.filter(b=>{
+  const s=getComputedStyle(b),r=b.getBoundingClientRect();
+  return !b.disabled&&s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0&&r.height<43.5;
+ }).map(b=>({label:(b.innerText||b.getAttribute('aria-label')||'').slice(0,65),height:Math.round(b.getBoundingClientRect().height)})));
+ assert.deepEqual(undersized,[],description+' — кнопки ниже 44 px');
 }
 async function openTopic(page,i){
  await page.locator('.tile.primary').click();
@@ -54,6 +61,7 @@ async function openTopic(page,i){
     await page.locator('button.back').click();
    }
    await checkFit(page,'Главная '+width);
+   if(width<=390)await checkTapTargets(page,'Главная / '+width);
    await page.locator('.tile.primary').click();
    assert.equal(await page.locator('button.topic').count(),6);
    await checkFit(page,'Список тем '+width);
@@ -61,6 +69,7 @@ async function openTopic(page,i){
     await page.locator('button.topic').nth(i).click();
     assert.equal(await page.locator('.modes .mode').count(),4,'Четыре режима на теме '+i);
     await checkFit(page,'Меню урока '+i+' / '+width);
+    if(width<=390)await checkTapTargets(page,'Меню урока '+i+' / '+width);
     await page.locator('.modes .mode').first().click();
     assert(await page.locator('section.panel').count()>=1,'Теория: тема '+i);
     await checkFit(page,'Теория '+i+' / '+width);
@@ -96,6 +105,7 @@ async function openTopic(page,i){
     assert.equal(quizFeedback,'Правильный ответ: '+quizCorrect,'Обратная связь Контроля совпадает с верной кнопкой');
     await page.getByRole('button',{name:'Следующий вопрос',exact:false}).click();
     await checkFit(page,'Контроль '+i+' / '+width);
+    if(width<=390)await checkTapTargets(page,'Контроль '+i+' / '+width);
     await page.locator('button.back').click();
     await page.locator('.modes .mode').nth(3).click();
     assert((await page.locator('button.choice').count())>=3,'Практика доступна');
@@ -106,6 +116,7 @@ async function openTopic(page,i){
     assert.equal(practiceFeedback,'Лучшее решение: '+practiceCorrect,'Практика прямо называет верное решение');
     assert(await page.getByText('Почему этот подход работает:',{exact:false}).count()>=1,'Есть обоснование лучшего выбора');
     await checkFit(page,'Практика '+i+' / '+width);
+    if(width<=390)await checkTapTargets(page,'Практика '+i+' / '+width);
     await page.locator('button.back').click();
     await page.locator('button.back').click();
    }

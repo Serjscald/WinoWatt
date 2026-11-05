@@ -28,3 +28,12 @@ button{font:inherit;cursor:pointer}button:disabled{opacity:.52;cursor:not-allowe
 
 /* Тематические эмодзи разделов: общий размер и безопасная высота строки для флагов и пиктограмм. */
 .tile-symbol{font-family:system-ui,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:29px;line-height:1.25;display:inline-flex;align-items:center;justify-content:center;min-width:36px;min-height:36px;font-variant-emoji:emoji}
+
+/* Мобильная доступность: минимальная высота интерактивных целей 44px.
+   Не меняем раскладку карточек и игровых ответов; учитываем разные браузеры и масштаб текста. */
+.brand,.back,.button,.choice,.topic,.mode,.tile,.sound-toggle{min-height:44px}
+button{touch-action:manipulation}
+@media(max-width:600px){
+  .actions>.button{min-height:48px}
+  .tabs>.button{min-height:48px}
+}
