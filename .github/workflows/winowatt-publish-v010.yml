@@ -1,0 +1,61 @@
+name: WinoWatt — опубликовать v0.1.0 (один раз)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'RELEASE_APPROVAL_v0.1.0.md'
+permissions:
+  contents: write
+jobs:
+  publish:
+    if: github.repository == 'Serjscald/WinoWatt'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Подтвердить авторское разрешение и корректную ветку
+        run: |
+          set -euo pipefail
+          test "${GITHUB_REF}" = "refs/heads/main"
+          test -f RELEASE_APPROVAL_v0.1.0.md
+          grep -q 'APPROVED_FOR_PRE_RELEASE: v0.1.0' RELEASE_APPROVAL_v0.1.0.md
+          test -f RELEASE_NOTES_v0.1.0.md
+          if gh release view v0.1.0 >/dev/null 2>&1; then
+            echo "Release v0.1.0 already exists; refusing to overwrite"
+            exit 1
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Проверить синтаксис, уроки и учебные данные
+        run: |
+          set -euo pipefail
+          for file in tests/*-smoke.cjs; do node "$file"; done
+          node tests/smoke.cjs
+          node tests/content-audit.cjs
+          node tests/reverse-balance.cjs
+          node tests/distractor-quality.cjs
+          node tests/practice-quality.cjs
+          node tests/beginner-path.cjs
+      - name: Построить и проверить памятный ZIP
+        run: |
+          set -euo pipefail
+          python3 tools/build_release.py --version v0.1.0 --date 2026-11-05
+          python3 tools/verify_release.py dist/*.zip
+          sha256sum --check dist/*.zip.sha256
+      - name: Создать публичный предварительный релиз GitHub с вложениями
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release create v0.1.0 dist/*.zip dist/*.zip.sha256 \
+            --repo "${GITHUB_REPOSITORY}" \
+            --title "ВиноВатт! v0.1.0 — первый выпуск" \
+            --notes-file RELEASE_NOTES_v0.1.0.md \
+            --target "${GITHUB_SHA}" \
+            --prerelease
+          gh release view v0.1.0 --repo "${GITHUB_REPOSITORY}" --json url,assets,tagName,isPrerelease
