@@ -25,4 +25,5 @@ jobs:
           sleep 2
           node tests/browser-e2e.cjs
           node tests/keyboard-a11y.cjs
+          node tests/text-reflow-a11y.cjs
           node tests/full-learning-journey.cjs
