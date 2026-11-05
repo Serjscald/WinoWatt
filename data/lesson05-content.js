@@ -54,9 +54,9 @@ const unit={
       },
       {
         "title": "6. Reserva, Grand Cru и «старые лозы» — не универсальные медали",
-        "body": "Термины Reserva, Riserva, Gran Reserva, Grand Cru, Vieilles Vignes и другие нельзя механически переносить между странами. В одной системе отдельное слово связано с законодательно установленными сроками или происхождением, в другой контекст и контроль могут отличаться. Например, испанская Rioja имеет собственные категории выдержки, а бургундское Grand Cru связано с классификацией виноградников. Значение всегда требует конкретного региона и действующего регламента.",
+        "body": "Термины Reserva, Riserva, Gran Reserva, Grand Cru, Vieilles Vignes и другие нельзя механически переносить между странами. В одной системе отдельное слово связано с законодательно установленными сроками или происхождением, в другой контекст и контроль могут отличаться. Например, испанская Rioja имеет собственные категории выдержки, а бургундское Grand Cru связано с классификацией виноградников. Значение всегда требует конкретного региона и действующего регламента. Пример: для красной Rioja DOCa Reserva установлена общая выдержка не менее 36 месяцев, из которых не менее 12 — в дубовой бочке и не менее 6 — в бутылке; для белых и розовых Reserva требования иные. В Бургундии Grand Cru относится к классифицированным виноградникам и аппелласьонам, а в Шампани Grand Cru исторически связан со статусом 17 коммун. Это разные системы, а не международный рейтинг вкуса.",
         "takeaway": "Красивое слово имеет значение только вместе с местом и правилами его применения.",
-        "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/; WSET, Why do we age wine? (2023), https://www.wsetglobal.com/knowledge-centre/blog/2023/march/21/why-do-we-age-wine"
+        "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/; WSET, Why do we age wine? (2023), https://www.wsetglobal.com/knowledge-centre/blog/2023/march/21/why-do-we-age-wine; Consejo Regulador DOCa Rioja, Reserva (https://riojawine.com/en/wines-rioja/); Bourgogne Wines/BIVB, Grand Cru appellations (https://www.bourgogne-wines.com/); Comité Champagne, Grand Cru villages (https://www.champagne.fr/en/); Consorzio Barolo Barbaresco, Barolo DOCG (https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/)"
       },
       {
         "title": "7. Четыре вопроса профессионального кависта",
@@ -94,7 +94,7 @@ const unit={
       },
       {
         "myth": "«Reserva всегда лучше вина без надписи Reserva».",
-        "fact": "Смысл слова зависит от страны, региона и действующих правил; прямой рейтинг качества из одного слова не следует."
+        "fact": "Например, у красной Rioja Reserva установлены сроки выдержки; у вин других стран правила могут отличаться. Само слово не гарантирует, что конкретная бутылка понравится покупателю."
       },
       {
         "myth": "«Винтаж — это год розлива бутылки».",
@@ -179,18 +179,18 @@ const unit={
       "topic": "grape-region",
       "front": "Можно ли по слову Reserva гарантировать качество?",
       "back": "Нет: смысл и регламент слова зависят от страны и региона.",
-      "why": "Нельзя переносить испанские нормы выдержки на любое итальянское или другое вино.",
+      "why": "В Rioja для красной Reserva действуют конкретные требования выдержки, но нормы других винодельческих регионов нельзя считать идентичными.",
       "story": "«Сначала узнаем, кто выдал медаль и за что».",
-      "source": "WSET, Why do we age wine? (2023), https://www.wsetglobal.com/knowledge-centre/blog/2023/march/21/why-do-we-age-wine"
+      "source": "WSET, Why do we age wine? (2023), https://www.wsetglobal.com/knowledge-centre/blog/2023/march/21/why-do-we-age-wine; Consejo Regulador DOCa Rioja (https://riojawine.com/en/wines-rioja/)"
     },
     {
       "id": "e-card-009",
       "topic": "grape-region",
       "front": "Что означает Grand Cru без указания региона?",
       "back": "Требует уточнения региона и его классификации; это не универсальная международная оценка.",
-      "why": "Например, в Бургундии термин связан с конкретными классифицированными виноградниками.",
+      "why": "В Бургундии Grand Cru связано с классифицированными виноградниками; в Шампани — с историческим статусом определённых коммун. Это разные системы.",
       "story": "«Звание понятно только вместе со страной и её правилами».",
-      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/"
+      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/; Bourgogne Wines/BIVB (https://www.bourgogne-wines.com/); Comité Champagne (https://www.champagne.fr/en/)"
     },
     {
       "id": "e-card-010",
@@ -309,8 +309,8 @@ const unit={
         "Проверять страну, регион и местные правила применения"
       ],
       "answer": 2,
-      "why": "Термин не универсален и не равен автоматическому рейтингу.",
-      "source": "WSET, Why do we age wine? (2023), https://www.wsetglobal.com/knowledge-centre/blog/2023/march/21/why-do-we-age-wine"
+      "why": "Rioja Reserva имеет местные нормы выдержки, но значение Reserva нельзя переносить на все страны; сам термин не гарантирует, что вино понравится гостю.",
+      "source": "WSET, Why do we age wine? (2023), https://www.wsetglobal.com/knowledge-centre/blog/2023/march/21/why-do-we-age-wine; Consejo Regulador DOCa Rioja (https://riojawine.com/en/wines-rioja/)"
     },
     {
       "id": "e-q008",
@@ -322,8 +322,8 @@ const unit={
         "Grand Cru — универсальное обозначение конкретного сорта"
       ],
       "answer": 1,
-      "why": "Классификационные слова нужно привязывать к конкретному месту.",
-      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/"
+      "why": "В Бургундии Grand Cru связано с классифицированными виноградниками, а в Шампани — с исторической классификацией коммун.",
+      "source": "WSET, How to read wine labels: common features (2019), https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels; Bureau Interprofessionnel des Vins de Bourgogne, Chablis AOC, https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/gallery_files/site/12881/74811.pdf; Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani, Barolo DOCG, https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/barolo-docg/; Bourgogne Wines (https://www.bourgogne-wines.com/); Comité Champagne (https://www.champagne.fr/en/)"
     },
     {
       "id": "e-q009",
@@ -427,7 +427,7 @@ const unit={
           "why": "Маркировка не гарантирует совпадения с предпочтениями гостя."
         }
       ],
-      "conclusion": "«Reserva может говорить о правилах выдержки или другом местном требовании, но его смысл зависит от происхождения. Давайте сравним конкретные вина и то, что вы любите»."
+      "conclusion": "«Reserva в разных странах означает разное. Например, у красной Rioja Reserva есть конкретные нормы выдержки, но эта надпись не гарантирует, что вино лучше подходит именно вам. Давайте сравним стиль двух бутылок»."
     },
     {
       "id": "e-p003",
