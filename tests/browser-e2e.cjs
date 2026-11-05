@@ -29,7 +29,18 @@ async function openTopic(page,i){
    page.on('pageerror',error=>errors.push(error.message));
    await page.goto(base,{waitUntil:'load'});
    assert.match(await page.title(),/ВиноВатт/);
-   assert.equal(await page.locator('.tile').count(),7);
+   assert.equal(await page.locator('.tile').count(),8);
+   await page.locator('.tile.coffeeum').click();
+   assert.equal(await page.locator('button.topic').count(),6,'КофеУм: шесть глав');
+   await page.locator('button.topic').nth(1).click();
+   assert(await page.getByText('18 г', {exact:false}).count()>=1,'Рожковая кофемашина: базовый рецепт');
+   await checkFit(page,'КофеУм: рожковая машина / '+width);
+   await page.locator('button.back').click();
+   await page.locator('button.topic').nth(4).click();
+   assert(await page.getByText('Флэт-уайт',{exact:false}).count()>=1,'Карта кофейных напитков');
+   await checkFit(page,'КофеУм: напитки / '+width);
+   await page.locator('button.back').click();
+   await page.locator('button.back').click();
    for(const [name,count] of [['Игристые вина',7],['Крепкие напитки',6]]){
     await page.locator('.tile').filter({hasText:name}).click();
     assert.equal(await page.locator('button.topic').count(),count,'План раздела '+name);

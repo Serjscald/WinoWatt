@@ -57,6 +57,14 @@ window.VinoVattData = {
       "subtitle": "От сырья и дистилляции к стилям и выдержке",
       "symbol": "◇",
       "status": "plan"
+    },
+    {
+      "id": "coffeeum",
+      "number": "08",
+      "name": "КофеУм для народа",
+      "subtitle": "Кофе без снобизма — от зерна до чашки",
+      "symbol": "☕",
+      "status": "guide"
     }
   ],
   "topics": [

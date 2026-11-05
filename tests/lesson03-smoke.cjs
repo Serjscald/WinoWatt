@@ -11,7 +11,7 @@ for(const f of ['data/lesson01-content.js','data/lesson02-content.js','data/less
 const context={window:{}};
 for(const f of ['data/lesson01-content.js','data/lesson02-content.js','data/lesson03-content.js','data/lesson04-content.js','data/lesson05-content.js','data/lesson06-content.js']) vm.runInNewContext(fs.readFileSync(path.join(root,f),'utf8'),context);
 const d=context.window.VinoVattData;
-assert.equal(d.sections.length,7);
+assert.equal(d.sections.length,8);
 assert.equal(d.topics.length,6);
 assert.equal(d.sections.find(x=>x.id==='china').status,'placeholder');
 assert.deepEqual([...d.topics.filter(t=>t.status==='lesson').map(x=>x.id)],['what-is-wine','wine-character','vine-to-bottle','terroir','grape-region','caviste']);
