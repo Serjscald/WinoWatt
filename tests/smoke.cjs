@@ -54,4 +54,5 @@ assert(html.includes('lesson01-content.js')&&html.includes('lesson02-content.js'
 const app=fs.readFileSync(path.join(root,'js/app.js'),'utf8');
 assert(app.includes("'vinovatt:learn:v2:' + currentTopic"),'Прогресс по темам');
 assert(app.includes('aria-pressed')&&app.includes('aria-valuenow'),'Доступность');
+assert(app.includes("paragraph('Правильный ответ: '+options[answer]")&&app.includes("paragraph('Лучшее решение: '+best.label"),'В объяснениях правильный ответ назван текстом');
 console.log('PASS: ВиноВатт!/WinoWatt, 8 разделов, 6 тем, 6 уроков, 73 карточки, 73 вопроса, 19 кейсов, теория и изоляция прогресса');
