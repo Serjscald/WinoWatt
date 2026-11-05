@@ -46,7 +46,7 @@ jobs:
           set -euo pipefail
           python3 tools/build_release.py --version v0.1.0 --date 2026-11-05
           python3 tools/verify_release.py dist/*.zip
-          sha256sum --check dist/*.zip.sha256
+          (cd dist && sha256sum --check *.zip.sha256)
       - name: Создать публичный предварительный релиз GitHub с вложениями
         env:
           GH_TOKEN: ${{ github.token }}
