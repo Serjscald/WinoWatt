@@ -19,3 +19,9 @@ button{font:inherit;cursor:pointer}button:disabled{opacity:.52;cursor:not-allowe
 .tile.spirits{background:linear-gradient(145deg,#343039,#261f28);border-color:#62505a}
 .tile.spirits .tile-symbol{color:#d6a66e}
 .planned-topic .topic-sub:last-child{color:var(--copper);font-size:11px;letter-spacing:.045em}
+
+/* КофеУм — визуально отдельная последняя плашка, в тёплой кофейной гамме. */
+.tile.coffeeum{grid-column:1/-1;margin-top:25px;background:linear-gradient(130deg,#4c3123,#28201e);border:1px solid #a77c52;min-height:153px}
+.tile.coffeeum::before{content:"ОСОБЫЙ РАЗДЕЛ · КОФЕ";display:block;color:#e7c495;font-size:10px;font-weight:700;letter-spacing:.14em;margin-bottom:4px}
+.tile.coffeeum .tile-title{color:#fff0dc}.tile.coffeeum .tile-symbol{color:#e7c495}
+@media(max-width:600px){.tile.coffeeum{grid-column:auto;margin-top:20px}}
