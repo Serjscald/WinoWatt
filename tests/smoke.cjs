@@ -14,7 +14,7 @@ const d=context.window.VinoVattData;
 assert.equal(d.sections.length,7,'Семь основных разделов');
 assert.equal(d.topics.length,6,'Шесть тем введения');
 assert.equal(d.sections.find(x=>x.id==='china').status,'placeholder','Китай — заглушка');
-assert.deepEqual(d.sections.map(x=>x.id),['basics','old-world','new-world','russia','china','sparkling','spirits']);
+assert.deepEqual([...d.sections.map(x=>x.id)],['basics','old-world','new-world','russia','china','sparkling','spirits']);
 assert.equal(d.plannedCourses.sparkling.topics.length,7);
 assert.equal(d.plannedCourses.spirits.topics.length,6);
 assert(d.plannedCourses.spirits.description.includes('Креплёные вина'));
