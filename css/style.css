@@ -25,3 +25,6 @@ button{font:inherit;cursor:pointer}button:disabled{opacity:.52;cursor:not-allowe
 .tile.coffeeum::before{content:"ОСОБЫЙ РАЗДЕЛ · КОФЕ";display:block;color:#e7c495;font-size:10px;font-weight:700;letter-spacing:.14em;margin-bottom:4px}
 .tile.coffeeum .tile-title{color:#fff0dc}.tile.coffeeum .tile-symbol{color:#e7c495}
 @media(max-width:600px){.tile.coffeeum{grid-column:auto;margin-top:20px}}
+
+/* Тематические эмодзи разделов: общий размер и безопасная высота строки для флагов и пиктограмм. */
+.tile-symbol{font-family:system-ui,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:29px;line-height:1.25;display:inline-flex;align-items:center;justify-content:center;min-width:36px;min-height:36px;font-variant-emoji:emoji}

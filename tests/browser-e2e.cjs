@@ -30,6 +30,7 @@ async function openTopic(page,i){
    await page.goto(base,{waitUntil:'load'});
    assert.match(await page.title(),/ВиноВатт/);
    assert.equal(await page.locator('.tile').count(),8);
+   assert.deepEqual(await page.locator('.tile-symbol').allInnerTexts(),['🍇','🏰','🌎','🇷🇺','🇨🇳','🥂','🥃','☕'],'Пиктограммы восьми разделов');
    await page.locator('.tile.coffeeum').click();
    assert.equal(await page.locator('button.topic').count(),6,'КофеУм: шесть глав');
    await page.locator('button.topic').nth(1).click();

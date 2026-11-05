@@ -12,6 +12,7 @@ const context={window:{}};
 for(const file of ['data/lesson01-content.js','data/lesson02-content.js','data/lesson03-content.js','data/lesson04-content.js','data/lesson05-content.js','data/lesson06-content.js']) vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context);
 const d=context.window.VinoVattData;
 assert.equal(d.sections.length,8,'Восемь основных разделов');
+assert.deepEqual([...d.sections.map(s=>s.symbol)],['🍇','🏰','🌎','🇷🇺','🇨🇳','🥂','🥃','☕'],'У каждого раздела тематический эмодзи');
 assert.equal(d.topics.length,6,'Шесть тем введения');
 assert.equal(d.sections.find(x=>x.id==='china').status,'placeholder','Китай — заглушка');
 assert.deepEqual([...d.sections.map(x=>x.id)],['basics','old-world','new-world','russia','china','sparkling','spirits','coffeeum']);
