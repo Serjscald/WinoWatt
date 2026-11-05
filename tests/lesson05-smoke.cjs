@@ -9,6 +9,7 @@ assert.equal(cards.length,12);assert.equal(questions.length,12);assert.equal(cas
 assert.equal(d.topics.find(x=>x.id==='grape-region').status,'lesson');
 const labelTheory=l.professional.find(x=>x.title.includes('Reserva'))?.body||'';
 for(const token of ['Rioja','36 месяцев','12','Grand Cru','Шампани','Бургундии'])assert(labelTheory.includes(token),'Региональный пример: '+token);
+for(const token of ['Chablis Grand Cru','семью','climats','17','коммун'])assert(labelTheory.includes(token),'Проверка различия AOC / climat / communes: '+token);
 const reserva=d.questions.find(q=>q.id==='e-q007');assert(reserva&&reserva.options[reserva.answer].includes('Проверять'),'Reserva: сохранён правильный ответ');
 const all=[...d.cards,...d.questions,...d.practices];assert.equal(new Set(all.map(x=>x.id)).size,all.length);
 for(const q of questions){assert(q.options.length>=3&&new Set(q.options).size===q.options.length&&q.answer>=0&&q.answer<q.options.length&&q.why&&q.source);}
