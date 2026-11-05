@@ -11,9 +11,15 @@ for(const file of fileList.filter(f=>f.endsWith('.js')))execFileSync(process.exe
 const context={window:{}};
 for(const file of ['data/lesson01-content.js','data/lesson02-content.js','data/lesson03-content.js','data/lesson04-content.js','data/lesson05-content.js','data/lesson06-content.js']) vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),context);
 const d=context.window.VinoVattData;
-assert.equal(d.sections.length,5,'Пять основных разделов');
+assert.equal(d.sections.length,7,'Семь основных разделов');
 assert.equal(d.topics.length,6,'Шесть тем введения');
-assert.equal(d.sections.at(-1).status,'placeholder','Китай — заглушка');
+assert.equal(d.sections.find(x=>x.id==='china').status,'placeholder','Китай — заглушка');
+assert.deepEqual(d.sections.map(x=>x.id),['basics','old-world','new-world','russia','china','sparkling','spirits']);
+assert.equal(d.plannedCourses.sparkling.topics.length,7);
+assert.equal(d.plannedCourses.spirits.topics.length,6);
+assert(d.plannedCourses.spirits.description.includes('Креплёные вина'));
+assert(d.sections.slice(-2).every(x=>x.status==='plan'));
+
 assert.deepEqual([...d.topics.filter(t=>t.status==='lesson').map(x=>x.id)],['what-is-wine','wine-character','vine-to-bottle','terroir','grape-region','caviste']);
 const ids=new Set();
 for(const topic of d.topics.filter(x=>x.status==='lesson')){
@@ -45,4 +51,4 @@ assert(html.includes('lesson01-content.js')&&html.includes('lesson02-content.js'
 const app=fs.readFileSync(path.join(root,'js/app.js'),'utf8');
 assert(app.includes("'vinovatt:learn:v2:' + currentTopic"),'Прогресс по темам');
 assert(app.includes('aria-pressed')&&app.includes('aria-valuenow'),'Доступность');
-console.log('PASS: ВиноВатт!/WinoWatt, 5 разделов, 6 тем, 6 уроков, 73 карточки, 73 вопроса, 19 кейсов, теория и изоляция прогресса');
+console.log('PASS: ВиноВатт!/WinoWatt, 7 разделов, 6 тем, 6 уроков, 73 карточки, 73 вопроса, 19 кейсов, теория и изоляция прогресса');

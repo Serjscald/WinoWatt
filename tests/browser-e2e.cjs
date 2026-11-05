@@ -29,7 +29,18 @@ async function openTopic(page,i){
    page.on('pageerror',error=>errors.push(error.message));
    await page.goto(base,{waitUntil:'load'});
    assert.match(await page.title(),/ВиноВатт/);
-   assert.equal(await page.locator('.tile').count(),5);
+   assert.equal(await page.locator('.tile').count(),7);
+   for(const [name,count] of [['Игристые вина',7],['Крепкие напитки',6]]){
+    await page.locator('.tile').filter({hasText:name}).click();
+    assert.equal(await page.locator('button.topic').count(),count,'План раздела '+name);
+    assert.equal(await page.locator('.modes').count(),0,'Пустой раздел не имитирует готовые уроки');
+    await checkFit(page,name+' / '+width);
+    await page.locator('button.topic').first().click();
+    assert.match(await page.locator('h1').innerText(),/Рождение пузырька|Сырьё и производство/);
+    assert.match(await page.locator('.pagehead .eyebrow').innerText(),/В ПОДГОТОВКЕ/);
+    await page.locator('button.back').click();
+    await page.locator('button.back').click();
+   }
    await checkFit(page,'Главная '+width);
    await page.locator('.tile.primary').click();
    assert.equal(await page.locator('button.topic').count(),6);

@@ -12,3 +12,10 @@ button{font:inherit;cursor:pointer}button:disabled{opacity:.52;cursor:not-allowe
 .logo-mark{flex:0 0 49px;font-family:Georgia,"Times New Roman",serif}
 .logo-letters{font-weight:700;font-size:20px;letter-spacing:-.055em;line-height:1;white-space:nowrap;padding-right:2px}
 .logo-mark .spark{font-family:system-ui,sans-serif;right:-7px;bottom:-6px}
+
+/* Будущие учебные направления: фирменная медь и мягкий свет без перестройки сетки. */
+.tile.sparkling{background:linear-gradient(145deg,#4a3034,#292127);border-color:#795448}
+.tile.sparkling .tile-symbol{color:#edd4aa}
+.tile.spirits{background:linear-gradient(145deg,#343039,#261f28);border-color:#62505a}
+.tile.spirits .tile-symbol{color:#d6a66e}
+.planned-topic .topic-sub:last-child{color:var(--copper);font-size:11px;letter-spacing:.045em}
