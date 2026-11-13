@@ -27,5 +27,6 @@ jobs:
           node tests/distractor-quality.cjs
           node tests/practice-quality.cjs
           node tests/beginner-path.cjs
+          node tests/old-world-albarino-smoke.cjs
           python3 tools/build_release.py --version v0.0.0 --date 2026-01-01 --output dist/test-archive.zip
           python3 tools/verify_release.py dist/test-archive.zip
