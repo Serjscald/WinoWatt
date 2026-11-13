@@ -60,6 +60,16 @@ async function openTopic(page,i){
     await page.locator('button.back').click();
     await page.locator('button.back').click();
    }
+   await page.locator('.tile').filter({hasText:'Старый Свет'}).click();
+   await page.locator('button.topic').filter({hasText:'Испания'}).click();
+   assert.match(await page.locator('h1').innerText(),/Альбариньо/,'Первый региональный урок');
+   assert(await page.getByText('История Атлантики').count()>0,'Гостевой сюжет');
+   await page.getByRole('button',{name:'Знай как профессионал'}).click();
+   assert.equal(await page.locator('section.panel .tip').count(),8,'Семь профессиональных блоков и ситуация с рекомендацией');
+   assert(await page.getByText('Rías Baixas',{exact:false}).count()>0,'Обозначение происхождения');
+   await checkFit(page,'Альбариньо / '+width);
+   await page.locator('button.back').click();
+   await page.locator('button.back').click();
    await checkFit(page,'Главная '+width);
    if(width<=390)await checkTapTargets(page,'Главная / '+width);
    await page.locator('.tile.primary').click();
