@@ -62,6 +62,28 @@ async function openTopic(page,i){
    }
    await page.locator('.tile').filter({hasText:'Старый Свет'}).click();
    assert.deepEqual((await page.locator('button.topic .topic-title').allInnerTexts()),['Франция','Испания','Италия','Португалия','Германия','Австрия','Грузия'],'Короткий учебный маршрут Старого Света');
+   if(width===390){
+    for(const country of ['Франция','Испания','Италия','Португалия','Германия','Австрия','Грузия']){
+     await page.locator('button.topic').filter({hasText:country}).click();
+     assert.equal(await page.locator('.modes .mode').count(),3,'Три игры Старого Света: '+country);
+     await page.locator('.modes .mode').nth(0).click();
+     await page.getByRole('button',{name:'Показать ответ'}).click();
+     await page.getByRole('button',{name:'Следующая карточка'}).click();
+     await checkFit(page,'Карточки Старого Света: '+country);
+     await page.locator('button.back').click();
+     await page.locator('.modes .mode').nth(1).click();
+     assert.equal(await page.locator('button.choice').count(),3,'Три контрольных варианта: '+country);
+     await page.locator('button.choice').first().click();
+     assert(await page.locator('.correct-answer').isVisible(),'Контрольный разбор: '+country);
+     await page.locator('button.back').click();
+     await page.locator('.modes .mode').nth(2).click();
+     await page.locator('button.choice').first().click();
+     assert(await page.locator('.correct-answer').isVisible(),'Разбор практики: '+country);
+     await checkFit(page,'Практика Старого Света: '+country);
+     await page.locator('button.back').click();
+     await page.locator('button.back').click();
+    }
+   }
    await page.locator('button.topic').filter({hasText:'Испания'}).click();
    assert.match(await page.locator('h1').innerText(),/Испания/,'Полочная карта Испании');
    assert(await page.getByText('Риоха',{exact:false}).count()>0,'Ключевые регионы Испании');
