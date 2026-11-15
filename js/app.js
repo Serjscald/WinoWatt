@@ -73,8 +73,103 @@ function showShelfCountry(name){
  const bubbles=section('И не забываем об игристых','ОТДЕЛЬНЫЙ РАЗДЕЛ');bubbles.append(paragraph(entry.sparkling));main.append(bubbles);
  const prices=section(guide.priceGuide.title,'ОРИЕНТИРОВОЧНЫЕ ЦЕНОВЫЕ УРОВНИ');prices.append(paragraph(guide.priceGuide.note,'minor'));
  guide.priceGuide.bands.forEach(x=>prices.append(paragraph('• '+x)));main.append(prices);
+ const game=window.WinoWattOldWorldGames?.build(name);
+ if(game){
+  const buttons=node('div','modes');
+  [['Обучение',game.items.length+' карточек по регионам',()=>startShelfLearning(name)],
+   ['Контроль',game.items.length+' вопросов с объяснениями',()=>startShelfQuiz(name)],
+   ['Практика','1 ситуация у винной полки',()=>startShelfPractice(name)]].forEach(([label,desc,fn])=>{
+    const b=node('button','mode');b.type='button';add(b,node('span','',label),node('small','',desc));b.onclick=fn;buttons.append(b);
+   });
+  main.append(buttons);
+ }
  if(name==='Испания')main.append(button('Читать историю «Альбариньо — виноград моря» →',()=>storyExample()));
  main.append(button('К странам Старого Света',()=>openSection('old-world'),true));
+}
+/* Старый Свет: одна игровая машинерия для всех семи стран, без копирования уроков. */
+let shelfSession=null;
+const shelfGame=name=>window.WinoWattOldWorldGames?.build(name);
+const shelfKey=name=>'vinovatt:oldworld:learn:'+name;
+function startShelfLearning(name){
+ const game=shelfGame(name);if(!game)return showShelfCountry(name);
+ const ids=game.items.map(x=>x.id),signature=ids.join('|');let saved=null;
+ try{saved=JSON.parse(safeGet(shelfKey(name)));}catch(_){}
+ if(!saved||saved.signature!==signature||!Array.isArray(saved.order)||saved.order.length!==ids.length||new Set(saved.order).size!==ids.length||!saved.order.every(id=>ids.includes(id))||!Number.isInteger(saved.index)||saved.index<0||saved.index>ids.length||!saved.directions||ids.some(id=>typeof saved.directions[id]!=='boolean')){
+  const order=shuffle(ids),flags=window.WinoWattOldWorldGames.directions(order);
+  saved={signature,order,index:0,directions:Object.fromEntries(order.map((id,i)=>[id,flags[i]]))};
+ }
+ shelfSession={country:name,mode:'learn',state:saved};safeSet(shelfKey(name),JSON.stringify(saved));showShelfLearning();
+}
+function showShelfLearning(){
+ const {country,state}=shelfSession,game=shelfGame(country),total=game.items.length;
+ render();main.append(back(()=>showShelfCountry(country)));
+ if(state.index>=total){
+  safeDel(shelfKey(country));main.append(heading('СТАРЫЙ СВЕТ · ОБУЧЕНИЕ','Карточки пройдены',country));
+  main.append(button('Повторить с новым порядком',()=>{safeDel(shelfKey(country));startShelfLearning(country)}));
+  main.append(button('К стране',()=>showShelfCountry(country),true));return;
+ }
+ const card=game.items.find(x=>x.id===state.order[state.index]),reverse=state.directions[card.id];
+ main.append(heading('СТАРЫЙ СВЕТ · ОБУЧЕНИЕ','Карточка '+(state.index+1)+' из '+total,country),progress(state.index,total));
+ const panel=section(reverse?card.style:card.region,reverse?'ОБРАТНАЯ КАРТОЧКА: УЗНАЙ РЕГИОН':'ПРЯМАЯ КАРТОЧКА: УЗНАЙ СТИЛЬ');
+ panel.append(button('Показать ответ',()=>{
+  panel.append(paragraph(reverse?'Регион: '+card.region:card.style,'lead'));
+  panel.append(button('Следующая карточка →',()=>{state.index++;safeSet(shelfKey(country),JSON.stringify(state));showShelfLearning()}));
+  panel.querySelector('button').remove();ping();
+ }));
+ main.append(panel);
+}
+function startShelfQuiz(name){
+ const game=shelfGame(name);if(!game)return showShelfCountry(name);
+ const items=shuffle(game.items),directions=window.WinoWattOldWorldGames.directions(items);
+ shelfSession={country:name,mode:'quiz',items,index:0,score:0,directions};showShelfQuiz();
+}
+function showShelfQuiz(){
+ const s=shelfSession,game=shelfGame(s.country);
+ render();main.append(back(()=>showShelfCountry(s.country)));
+ if(s.index>=s.items.length){
+  main.append(heading('СТАРЫЙ СВЕТ · КОНТРОЛЬ','Результат: '+s.score+' из '+s.items.length,s.country));
+  main.append(button('Повторить контроль',()=>startShelfQuiz(s.country)));
+  main.append(button('К стране',()=>showShelfCountry(s.country),true));return;
+ }
+ const item=s.items[s.index],reverse=s.directions[s.index],others=shuffle(game.items.filter(x=>x.id!==item.id)).slice(0,2);
+ const candidates=shuffle([item,...others]);
+ const question=reverse?'Какому региону соответствует описание?':'Какое описание характерно для региона '+item.region+'?';
+ const panel=section(question,reverse?'ОБРАТНЫЙ ВОПРОС':'ПРЯМОЙ ВОПРОС');
+ if(reverse)panel.append(paragraph(item.style,'lead'));
+ main.append(heading('СТАРЫЙ СВЕТ · КОНТРОЛЬ','Вопрос '+(s.index+1)+' из '+s.items.length,s.country),progress(s.index,s.items.length));
+ const choices=node('div','choices');let answered=false;
+ candidates.forEach(opt=>{
+  const b=node('button','choice',reverse?opt.region:opt.style);b.type='button';
+  b.onclick=()=>{
+   if(answered)return;answered=true;const correct=opt.id===item.id;if(correct){s.score++;ping();}
+   for(const c of choices.querySelectorAll('button')){c.disabled=true;}
+   b.classList.add(correct?'correct':'wrong');
+   const result=node('div','result '+(correct?'good':'bad'));
+   const answer=reverse?item.region:item.style;
+   add(result,node('strong','',correct?'Верно!':'Разберём ошибку'),paragraph('Правильный ответ: '+answer,'correct-answer'),paragraph('Регион: '+item.region+'. Типичный стиль: '+item.style),button('Следующий вопрос →',()=>{s.index++;showShelfQuiz()}));
+   panel.append(result);announce((correct?'Верно. ':'Неверно. ')+'Правильный ответ: '+answer);
+  };choices.append(b);
+ });
+ panel.append(choices);main.append(panel);
+}
+function startShelfPractice(name){
+ if(!shelfGame(name))return showShelfCountry(name);
+ shelfSession={country:name,mode:'practice'};showShelfPractice();
+}
+function showShelfPractice(){
+ const country=shelfSession.country,game=shelfGame(country),caseData=game.practice;
+ render();main.append(back(()=>showShelfCountry(country)),heading('СТАРЫЙ СВЕТ · ПРАКТИКА','Разговор у полки',country));
+ const panel=section(caseData.scenario,'ПОМОГИ ПОКУПАТЕЛЮ'),choices=node('div','choices');
+ let answered=false;shuffle(caseData.options).forEach(opt=>{
+  const b=node('button','choice',opt.label);b.type='button';b.onclick=()=>{
+   if(answered)return;answered=true;if(opt.ok)ping();
+   choices.querySelectorAll('button').forEach(x=>x.disabled=true);b.classList.add(opt.ok?'correct':'wrong');
+   const best=caseData.options.find(x=>x.ok);
+   const r=node('div','result '+(opt.ok?'good':'bad'));
+   add(r,node('strong','',opt.ok?'Хорошее решение!':'Что стоит улучшить?'),paragraph(opt.why),paragraph('Лучшее решение: '+best.label,'correct-answer'),paragraph('Почему это работает: '+best.why),button('К карте страны',()=>showShelfCountry(country)));
+   panel.append(r);announce((opt.ok?'Хорошее решение. ':'Есть лучший вариант. ')+'Лучшее решение: '+best.label);
+  };choices.append(b);
+ });panel.append(choices);main.append(panel);
 }
 function showCoffeeHome(){const intro=section('Добро пожаловать в КофеУм','САМОСТОЯТЕЛЬНЫЙ КОФЕЙНЫЙ УГОЛОК');intro.append(paragraph(COFFEE.intro));main.append(intro);const list=node('div','topics');COFFEE.chapters.forEach((c,i)=>{const b=node('button','topic');b.type='button';add(b,node('span','topic-title',c.title),node('span','topic-sub',c.subtitle),node('span','topic-sub','ЧИТАТЬ ГЛАВУ'));b.onclick=()=>showCoffeeChapter(i);list.append(b)});main.append(list);}
 function showCoffeeChapter(i){const c=COFFEE.chapters[i];if(!c)return openSection('coffeeum');render();main.append(back(()=>openSection('coffeeum')),heading('КОФЕУМ · ГЛАВА '+String(i+1).padStart(2,'0'),c.title,c.subtitle));const first=section('Коротко о главном','РАССКАЖИ ГОСТЮ');first.append(paragraph(c.lead,'lead'));main.append(first);for(const x of c.points){const b=section(x[0],'ЗНАЙ КАК ПРОФЕССИОНАЛ');b.append(paragraph(x[1]));main.append(b)}if(i===4){for(const g of COFFEE.drinks){const box=section(g.label,'НАПИТКИ');g.items.forEach(x=>{const b=node('div','myth');add(b,node('strong','',x[0]),paragraph(x[1]));box.append(b)});main.append(box);}}main.append(paragraph(COFFEE.sourceNote,'minor'));main.append(button('К кофейным главам',()=>openSection('coffeeum'),true));}

@@ -27,4 +27,24 @@ assert(shelf.priceGuide.bands.length===4,'Четыре приблизитель�
 for(const country of countries){const c=shelf.countries[country];assert(c.regions.length>=3&&c.regions.length<=6,'Проверить краткость курса: '+country);assert(c.shelf&&c.service&&c.sparkling);}
 assert(html.includes('data/old-world-shelf.js'),'Нет подключения полочного справочника');
 assert(app.includes('showShelfCountry'),'Нет экранов по странам');
+vm.runInNewContext(fs.readFileSync(path.join(root,'data/old-world-games.js'),'utf8'),ctx);
+const games=ctx.window.WinoWattOldWorldGames;
+let total=0;
+for(const country of expected){
+ const game=games.build(country);
+ assert(game&&game.items.length===shelf.countries[country].regions.length,'Карточки по регионам: '+country);
+ assert(game.items.length>=3&&game.items.length<=6);
+ assert(new Set(game.items.map(x=>x.id)).size===game.items.length,'Уникальность ID');
+ assert(game.items.every(x=>x.region&&x.style.length>30));
+ const flags=games.directions(game.items);
+ assert.equal(flags.filter(Boolean).length,Math.floor(game.items.length/2),'Баланс обратных карточек: '+country);
+ assert.equal(game.practice.options.length,3,'Три стратегии кависта');
+ assert.equal(game.practice.options.filter(x=>x.ok).length,1,'Ровно одно лучшее решение');
+ assert(game.practice.options.every(x=>x.label.length>25&&x.why.length>30));
+ total+=game.items.length;
+}
+assert.equal(total,30,'30 региональных карточек и 30 контрольных вопросов');
+assert(html.includes('data/old-world-games.js'),'Игровой файл подключён');
+for(const term of ['startShelfLearning','startShelfQuiz','startShelfPractice','showShelfCountry'])assert(app.includes(term),'Режим '+term);
+console.log('PASS: 7 country games, 30 cards, 30 questions, 7 practice cases, 50/50 reverse');
 console.log('PASS: compact Old World shelf + Albariño theory, 7 countries and 4 illustrative price tiers');
