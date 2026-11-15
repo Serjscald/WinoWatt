@@ -61,7 +61,12 @@ async function openTopic(page,i){
     await page.locator('button.back').click();
    }
    await page.locator('.tile').filter({hasText:'Старый Свет'}).click();
+   assert.deepEqual((await page.locator('button.topic .topic-title').allInnerTexts()),['Франция','Испания','Италия','Португалия','Германия','Австрия','Грузия'],'Короткий учебный маршрут Старого Света');
    await page.locator('button.topic').filter({hasText:'Испания'}).click();
+   assert.match(await page.locator('h1').innerText(),/Испания/,'Полочная карта Испании');
+   assert(await page.getByText('Риоха',{exact:false}).count()>0,'Ключевые регионы Испании');
+   assert(await page.getByText('До 1 500 ₽',{exact:false}).count()>0,'Ориентир полочных цен');
+   await page.getByRole('button',{name:'Читать историю «Альбариньо'}).click();
    assert.match(await page.locator('h1').innerText(),/Альбариньо/,'Первый региональный урок');
    assert(await page.getByText('История Атлантики').count()>0,'Гостевой сюжет');
    await page.getByRole('button',{name:'Знай как профессионал'}).click();
